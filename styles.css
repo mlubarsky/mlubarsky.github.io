@@ -301,8 +301,8 @@ body.dark footer p a {
     }
 
     .project, .work-experience {
-        width: 80%; /* Adjust width for smaller screens */
-        max-width: 80%; /* Adjust max-width for smaller screens */
+        width: 60%; /* Adjust width for smaller screens */
+        max-width: 60%; /* Adjust max-width for smaller screens */
         margin-bottom: 1em;
     }
 
