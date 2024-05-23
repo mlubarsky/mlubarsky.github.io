@@ -14,13 +14,13 @@ body {
 
 :root {
     --background-color: #e6e6fa;
-    --text-color: #333333;
+    --text-color: #222222;
     --primary-color: #3f51b5;
     --secondary-color: #e0f7fa;
     --accent-color: #007bff;
     --header-footer-bg: #36454f;
     --header-footer-text: #e6e6fa;
-    --footer-link-color: #007bff;
+    --footer-link-color: var(--background-color);
     --project-bg: #b7bfd2;
     --project-border: #bbb;
     --icon-hover-color: #0056b3; /* Light theme icon hover color */
@@ -112,6 +112,7 @@ nav {
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
     margin-left: 1em;
+    margin-right: 1em;
 }
 
 #theme-toggle:hover {
@@ -138,7 +139,7 @@ p {
     text-align: center;
 }
 
-/* Project and Work Experience Styles */
+/* Project Styles */
 .projects-container {
     display: flex;
     flex-wrap: wrap;
@@ -202,7 +203,7 @@ p {
     border-radius: 4px;
     background: var(--project-bg);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    text-align: left;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
 }
 
