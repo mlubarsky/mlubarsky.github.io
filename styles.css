@@ -23,6 +23,11 @@ body {
     --footer-link-color: #007bff;
     --project-bg: #b7bfd2;
     --project-border: #bbb;
+    --icon-hover-color: #0056b3; /* Light theme icon hover color */
+    --button-bg-color: var(--background-color); /* Light theme button background color */
+    --button-text-color: var(--header-footer-bg); /* Light theme button text color */
+    --button-hover-bg-color: #121212; /* Dark theme background color */
+    --button-hover-text-color: #ffcc00; /* Dark theme header/footer background color */
 }
 
 body.dark {
@@ -34,6 +39,11 @@ body.dark {
     --footer-link-color: #f8c600;
     --project-bg: #333333;
     --project-border: #555555;
+    --icon-hover-color: #ffcc00; /* Dark theme icon hover color */
+    --button-bg-color: var(--background-color); /* Dark theme button background color */
+    --button-text-color: var(--primary-color); /* Dark theme button text color */
+    --button-hover-bg-color: #e6e6fa; /* Light theme background color */
+    --button-hover-text-color: #36454f; /* Light theme header/footer background color */
 }
 
 header {
@@ -90,21 +100,23 @@ nav {
 }
 
 .social-icons a:hover {
-    color: var(--accent-color);
+    color: var(--icon-hover-color);
 }
 
 #theme-toggle {
-    background: var(--accent-color);
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
     border: none;
     padding: 0.5em 1em;
     border-radius: 4px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, color 0.3s;
     margin-left: 1em;
 }
 
 #theme-toggle:hover {
-    background: #0056b3;
+    background: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color);
 }
 
 main {
@@ -162,7 +174,6 @@ p {
     color: var(--text-color);
 }
 
-
 .project a {
     color: var(--primary-color);
     text-decoration: none;
@@ -212,10 +223,10 @@ p {
 
 .work-experience .details {
     display: none;
-}
-
-.work-experience .details.active {
-    display: block;
+    padding-top: 1em;
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Ensure it takes full width */
+    margin: 0 auto; /* Center the details section within the container */
 }
 
 .work-experience .toggle-details {
@@ -237,6 +248,10 @@ p {
 
 .work-experience .toggle-details.active .arrow {
     transform: translateX(-50%) rotate(180deg);
+}
+
+.work-experience .details.active {
+    display: block;
 }
 
 /* Footer Styles */
@@ -263,6 +278,7 @@ footer a:hover {
 body.dark footer p a {
     color: var(--footer-link-color);
 }
+
 
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
