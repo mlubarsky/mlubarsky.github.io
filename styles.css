@@ -23,7 +23,7 @@ body {
     --footer-link-color: var(--background-color);
     --project-bg: #b7bfd2;
     --project-border: #bbb;
-    --icon-hover-color: #0056b3; /* Light theme icon hover color */
+    --icon-hover-color: #a1a1af; /* Light theme icon hover color */
     --button-bg-color: var(--background-color); /* Light theme button background color */
     --button-text-color: var(--header-footer-bg); /* Light theme button text color */
     --button-hover-bg-color: #121212; /* Dark theme background color */
@@ -39,7 +39,7 @@ body.dark {
     --footer-link-color: #f8c600;
     --project-bg: #333333;
     --project-border: #555555;
-    --icon-hover-color: #ffcc00; /* Dark theme icon hover color */
+    --icon-hover-color: #ad8a00; /* Dark theme icon hover color */
     --button-bg-color: var(--background-color); /* Dark theme button background color */
     --button-text-color: var(--primary-color); /* Dark theme button text color */
     --button-hover-bg-color: #e6e6fa; /* Light theme background color */
@@ -139,6 +139,22 @@ p {
     text-align: center;
 }
 
+#about {
+    width: 76%; /* Set the desired width */
+    margin: 0 auto; /* Center the section horizontally */
+    padding: 3em; /* Adjust padding */
+}
+
+#home {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 3em;
+}
+
+#work-experience {
+    padding-top: 1em;
+}
+
 /* Project Styles */
 .projects-container {
     display: flex;
@@ -148,6 +164,7 @@ p {
 }
 
 .project {
+    position: relative; /* Ensure positioning context for absolute positioning */
     flex: 1;
     min-width: 300px;
     max-width: 350px;
@@ -158,6 +175,9 @@ p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column; /* Makes the project box a flex container with column layout */
+    padding-bottom: 50px; /* Add padding to the bottom */
 }
 
 .project:hover {
@@ -176,6 +196,10 @@ p {
 }
 
 .project a {
+    position: absolute; /* Position link absolutely within project box */
+    bottom: 5px; /* Align link to the bottom */
+    left: 50%; /* Center link horizontally */
+    transform: translateX(-50%); /* Adjust horizontally */
     color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
@@ -196,14 +220,14 @@ p {
 
 .work-experience {
     position: relative;
-    width: 80%;
+    width: 71.5%;
     padding: 2em;
     margin: 0 auto; /* Center the box horizontally */
     border: 1px solid var(--project-border);
     border-radius: 4px;
     background: var(--project-bg);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    text-align: center;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
 }
 
@@ -213,20 +237,28 @@ p {
 }
 
 .work-experience h3 {
+    text-align: center;
     margin-top: 0;
     color: var(--primary-color);
 }
 
-.work-experience p {
+.work-experience .details p {
+    text-align: left;
     margin: 0.5em 0;
     color: var(--text-color);
+}
+
+.work-experience .brief-description p {
+    padding-top: 1em;
+    padding-bottom: 2em;
+    width: 60%; /* Ensure it takes full width */
+    margin: 0 auto; /* Center the details section within the container */
 }
 
 .work-experience .details {
     display: none;
     padding-top: 1em;
-    text-align: left; /* Align text to the left */
-    width: 100%; /* Ensure it takes full width */
+    width: 90%; /* Ensure it takes full width */
     margin: 0 auto; /* Center the details section within the container */
 }
 
