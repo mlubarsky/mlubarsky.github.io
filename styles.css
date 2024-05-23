@@ -301,13 +301,20 @@ body.dark footer p a {
     }
 
     .project, .work-experience {
-        width: 100%;
-        max-width: 100%;
+        width: 90%; /* Adjust width for smaller screens */
+        max-width: 90%; /* Adjust max-width for smaller screens */
         margin-bottom: 1em;
     }
 
     .work-experience .details {
         padding-top: 0.5em;
     }
-}
 
+    footer {
+        padding: 1em 0;
+    }
+
+    footer p {
+        font-size: 0.8em; /* Adjust font size for smaller screens */
+    }
+}
