@@ -264,9 +264,50 @@ body.dark footer p a {
     color: var(--footer-link-color);
 }
 
-@media (max-width: 600px) {
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5em 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 0.5em 0;
+    }
+
+    .social-icons {
+        margin-top: 1em;
+    }
+
+    main {
+        padding: 1em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
     .projects-container, .work-experience-container {
         flex-direction: column;
         align-items: center;
     }
+
+    .project, .work-experience {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .work-experience .details {
+        padding-top: 0.5em;
+    }
 }
+
