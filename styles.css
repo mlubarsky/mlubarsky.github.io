@@ -15,7 +15,7 @@ body {
 :root {
     --background-color: #e6e6fa;
     --text-color: #222222;
-    --primary-color: #3f51b5;
+    --primary-color: #334b6e;
     --secondary-color: #e0f7fa;
     --accent-color: #007bff;
     --header-footer-bg: #36454f;
@@ -140,13 +140,13 @@ p {
 }
 
 #about {
-    width: 76%; /* Set the desired width */
+    width: 50%; /* Set the desired width */
     margin: 0 auto; /* Center the section horizontally */
-    padding: 3em; /* Adjust padding */
+    padding: 1em; /* Adjust padding */
 }
 
 #home {
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
     padding-bottom: 3em;
 }
@@ -240,6 +240,7 @@ p {
     text-align: left;
     margin-top: 0;
     color: var(--primary-color);
+    padding-bottom: 0em;
 }
 
 .job-info {
@@ -261,7 +262,7 @@ p {
 
 .work-experience .brief-description p {
     font-weight: bold;
-    padding-top: 3em;
+    padding-top: 1em;
     padding-bottom: 2em;
     width: 60%; /* Ensure it takes full width */
     margin: 0 auto; /* Center the details section within the container */
