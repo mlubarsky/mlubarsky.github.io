@@ -6,14 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark');
         if (body.classList.contains('dark')) {
-            logo.src = 'images/favicon-dark.png'; // Path to your dark theme logo
+            logo.src = 'images/ml-logo-dark.svg'; // Path to dark theme logo
         } else {
-            logo.src = 'images/favicon-light.png'; // Path to your light theme logo
+            logo.src = 'images/ml-logo-light.svg'; // Path to light theme logo
         }
     });
 
-    // Smooth scrolling
-    const links = document.querySelectorAll('nav ul li a');
+    const links = document.querySelectorAll('nav ul li a'); // Smooth scrolling
 
     for (const link of links) {
         link.addEventListener('click', (event) => {
