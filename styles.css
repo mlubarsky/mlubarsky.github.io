@@ -165,7 +165,6 @@ p {
 }
 
 .project {
-    display: flex;
     position: relative;
     flex: 1 1 calc(50% - 1em); /* Three items per row */
     flex-direction: column;
@@ -176,7 +175,7 @@ p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
-    min-width: 500px;
+    min-width: 300px;
     max-width: 550px;
     min-height: 200px;
     max-height: 250px;
@@ -378,6 +377,15 @@ body.dark footer p a {
         width: 70%;
         max-width: 70%;
         margin-bottom: 1em;
+    }
+
+    .projects-container {
+        justify-content: space-between;
+    }
+
+    .project {
+        flex: 1 1 calc(50% - 1em);
+        max-width: calc(50% - 1em);
     }
 
     .work-experience h3 {
