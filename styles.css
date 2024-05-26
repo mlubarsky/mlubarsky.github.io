@@ -337,7 +337,7 @@ body.dark footer p a {
 }
 
 /* Adjustments for smaller screens */
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
     header {
         padding: 0.5em 0;
     }
@@ -374,7 +374,7 @@ body.dark footer p a {
         align-items: center;
     }
 
-    .project{
+    .project {
         width: 40%; /* Adjust width for smaller screens */
         max-width: 40%; /* Adjust max-width for smaller screens */
         margin-bottom: 1em;
