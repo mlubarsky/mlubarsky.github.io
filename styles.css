@@ -336,70 +336,15 @@ body.dark footer p a {
     color: var(--footer-link-color);
 }
 
-
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
-    header {
-        padding: 0.5em 1em;
-    }
-
-    .nav-links {
-        display: none; /* Hide nav links by default on smaller screens */
-    }
-
-    .social-icons {
-        display: none; /* Hide social icons by default on smaller screens */
-    }
-
-    .nav-toggle {
-        display: block; /* Show nav toggle button on smaller screens */
-    }
-
-    .nav-links.show {
-        display: block; /* Show nav links when toggled on smaller screens */
-    }
-
-    .nav-links {
-        flex-direction: column;
-        align-items: left;
-    }
-
-    .nav-links li {
-        margin: 0.5em 0;
-    }
-
     main {
         padding: 1em;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    h2 {
-        font-size: 1.2em;
-    }
-
-    .projects-container, .work-experience-container {
-        flex-direction: column;
-        align-items: center;
     }
 
     .project, .work-experience {
         width: 90%; /* Adjust width for smaller screens */
         max-width: 90%; /* Adjust max-width for smaller screens */
         margin-bottom: 1em;
-    }
-
-    .work-experience .details {
-        padding-top: 0.5em;
-    }
-
-    footer {
-        padding: 1em 0;
-    }
-
-    footer p {
-        font-size: 0.8em; /* Adjust font size for smaller screens */
     }
 }
