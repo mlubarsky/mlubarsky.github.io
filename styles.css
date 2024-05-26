@@ -160,24 +160,28 @@ p {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
+    row-gap: 2em;
     justify-content: center;
 }
 
 .project {
-    position: relative; /* Ensure positioning context for absolute positioning */
-    flex: 1;
-    min-width: 300px;
-    max-width: 350px;
-    padding: 1.5em;
+    display: flex;
+    position: relative;
+    flex: 1 1 calc(50% - 1em); /* Three items per row */
+    flex-direction: column;
+    margin: 0;
     border: 1px solid var(--project-border);
     border-radius: 4px;
     background: var(--project-bg);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
-    display: flex;
-    flex-direction: column; /* Makes the project box a flex container with column layout */
-    padding-bottom: 50px; /* Add padding to the bottom */
+    min-width: 500px;
+    max-width: 550px;
+    min-height: 200px;
+    max-height: 250px;
+    padding: 2em; 
+    padding-bottom: 50px;
 }
 
 .project:hover {
