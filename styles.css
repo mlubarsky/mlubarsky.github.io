@@ -241,7 +241,7 @@ p {
 }
 
 .work-experience h3 {
-    text-align: left; /* Align text to the left */
+    text-align: left; 
     margin-top: 0;
     color: var(--primary-color);
     display: flex;
@@ -250,7 +250,7 @@ p {
 }
 
 .work-experience .work-logo {
-    width: 30px; /* Adjust the size as needed */
+    width: 30px;
     height: auto;
     margin-right: 10px;
 }
@@ -260,7 +260,7 @@ p {
     font-style: italic;
     color: var(--text-color);
     position: absolute;
-    right: 0; /* Align to the right */
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -375,8 +375,8 @@ body.dark footer p a {
     }
 
     .project {
-        width: 40%; /* Adjust width for smaller screens */
-        max-width: 700px; /* Adjust max-width for smaller screens */
+        width: 40px; /* Adjust width for smaller screens */
+        max-width: 40px; /* Adjust max-width for smaller screens */
         margin-bottom: 1em;
     }
 
@@ -385,6 +385,22 @@ body.dark footer p a {
         max-width: 70%; /* Adjust max-width for smaller screens */
         margin-bottom: 1em;
     }
+
+    .work-experience h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .work-experience .work-dates {
+        font-size: 0.9em;
+        font-style: italic;
+        color: var(--text-color);
+        margin-top: 0.5em;
+    }
+
 
     .work-experience .details {
         padding-top: 0.5em;
