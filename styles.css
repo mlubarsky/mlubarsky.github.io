@@ -193,6 +193,22 @@ p {
     color: var(--primary-color);
 }
 
+.project .python-logo {
+    position: absolute;
+    top: 5px; /* Adjust the value as needed */
+    left: 5px; /* Adjust the value as needed */
+    width: 45px; /* Adjust the size as needed */
+    height: auto;
+}
+
+.project .c-logo {
+    position: absolute;
+    top: 10px; /* Adjust the value as needed */
+    left: 10px; /* Adjust the value as needed */
+    width: 30px; /* Adjust the size as needed */
+    height: auto;
+}
+
 .project p {
     margin: 0.5em 0;
     color: var(--text-color);
