@@ -1,9 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
+    const logo = document.getElementById('logo');
 
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark');
+        if (body.classList.contains('dark')) {
+            logo.src = 'images/favicon-dark.png'; // Path to your dark theme logo
+        } else {
+            logo.src = 'images/favicon-light.png'; // Path to your light theme logo
+        }
     });
 
     // Smooth scrolling
