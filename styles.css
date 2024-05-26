@@ -340,7 +340,23 @@ body.dark footer p a {
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
     header {
-        padding: 0.5em 0;
+        padding: 0.5em 1em;
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on smaller screens */
+    }
+
+    .social-icons {
+        display: none; /* Hide social icons by default on smaller screens */
+    }
+
+    .nav-toggle {
+        display: block; /* Show nav toggle button on smaller screens */
+    }
+
+    .nav-links.show {
+        display: block; /* Show nav links when toggled on smaller screens */
     }
 
     .nav-links {
@@ -350,12 +366,6 @@ body.dark footer p a {
 
     .nav-links li {
         margin: 0.5em 0;
-    }
-
-    .social-icons {
-        flex-direction: column;
-        align-items: right;
-        margin-top: 1em;
     }
 
     main {
@@ -376,8 +386,8 @@ body.dark footer p a {
     }
 
     .project, .work-experience {
-        width: 70%; /* Adjust width for smaller screens */
-        max-width: 70%; /* Adjust max-width for smaller screens */
+        width: 90%; /* Adjust width for smaller screens */
+        max-width: 90%; /* Adjust max-width for smaller screens */
         margin-bottom: 1em;
     }
 
