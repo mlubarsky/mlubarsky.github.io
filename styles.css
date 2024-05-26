@@ -216,7 +216,6 @@ p {
     flex-direction: column;
     gap: 1em;
     align-items: center;
-    padding-bottom: 2em;
 }
 
 .work-experience {
@@ -228,6 +227,7 @@ p {
     border-radius: 4px;
     background: var(--project-bg);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
 }
 
@@ -237,46 +237,43 @@ p {
 }
 
 .work-experience h3 {
-    text-align: left;
+    text-align: left; /* Align text to the left */
     margin-top: 0;
     color: var(--primary-color);
-    padding-bottom: 0em;
-}
-
-.job-info {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5em;
-    font-size: 0.9em; 
+    position: relative;
+}
+
+.work-experience .work-logo {
+    width: 30px; /* Adjust the size as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+.work-experience .work-dates {
+    font-size: 0.9em;
+    font-style: italic;
     color: var(--text-color);
+    position: absolute;
+    right: 0; /* Align to the right */
+    top: 50%;
+    transform: translateY(-50%);
 }
-
-.job-info .place-of-work {
-    font-weight: bold; /
-}
-
-.job-info .work-dates {
-    font-style: italic; 
-} 
 
 .work-experience .brief-description p {
     font-weight: bold;
     padding-top: 1em;
     padding-bottom: 2em;
-    width: 60%; /* Ensure it takes full width */
-    margin: 0 auto; /* Center the details section within the container */
-}
-
-.work-experience h2 {
-    color: var(--text-color);
+    width: 60%;
+    margin: 0 auto;
 }
 
 .work-experience .details {
     display: none;
     padding-top: 1em;
-    width: 90%; /* Ensure it takes full width */
-    margin: 0 auto; /* Center the details section within the container */
+    width: 90%;
+    margin: 0 auto;
 }
 
 .work-experience .details li {
