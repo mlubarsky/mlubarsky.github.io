@@ -376,7 +376,7 @@ body.dark footer p a {
 
     .project {
         width: 40%; /* Adjust width for smaller screens */
-        max-width: 40%; /* Adjust max-width for smaller screens */
+        max-width: 700px; /* Adjust max-width for smaller screens */
         margin-bottom: 1em;
     }
 
