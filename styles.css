@@ -374,15 +374,9 @@ body.dark footer p a {
         align-items: center;
     }
 
-    .project {
-        width: 40px; /* Adjust width for smaller screens */
-        max-width: 40px; /* Adjust max-width for smaller screens */
-        margin-bottom: 1em;
-    }
-
-    .work-experience {
-        width: 70%; /* Adjust width for smaller screens */
-        max-width: 70%; /* Adjust max-width for smaller screens */
+    .work-experience .project .projects-container{
+        width: 70%;
+        max-width: 70%;
         margin-bottom: 1em;
     }
 
@@ -401,9 +395,8 @@ body.dark footer p a {
         margin-top: 0.5em;
         flex-direction: column;
         align-items: flex-start;
-        top: 5%;
+        top: 2%;
     }
-
 
     .work-experience .details {
         padding-top: 0.5em;
@@ -414,6 +407,6 @@ body.dark footer p a {
     }
 
     footer p {
-        font-size: 0.8em; /* Adjust font size for smaller screens */
+        font-size: 0.8em; 
     }
 }
