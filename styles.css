@@ -307,6 +307,7 @@ p {
 .project h3 {
     margin-top: 0;
     color: var(--primary-color);
+    font-weight: bold;
 }
 
 .project .python-logo {
@@ -328,6 +329,7 @@ p {
 .project p {
     margin: 0.5em 0;
     color: var(--text-color);
+    font-weight: bold;
 }
 
 .project a {
@@ -341,8 +343,38 @@ p {
     transition: color 0.3s;
 }
 
+.project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    filter: grayscale(100%);
+    z-index: 0;
+}
+
 .project a:hover {
     text-decoration: underline;
+}
+
+.project-1::before {
+    background-image: url('images/AQI.webp');
+}
+
+.project-2::before {
+    background-image: url('images/KMeans.png');
+}
+
+.project-3::before {
+    background-image: url('images/computer-network.jpg');
+}
+
+.project-4::before {
+    background-image: url('images/riscv.png');
 }
 
 /* Work Experience Styles */
