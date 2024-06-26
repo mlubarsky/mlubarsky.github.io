@@ -185,13 +185,12 @@ p {
 .dark .profile-card {
     background-color: #555;
     border: 1px solid var(--project-border);
-    margin-right: 20px;
 }
 
 .headshot {
     border-radius: 50%;
-    width: 250px;
-    height: 250px;
+    width: 270px;
+    height: 270px;
     margin-bottom: 10px;
 }
 
