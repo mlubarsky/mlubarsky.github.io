@@ -1,3 +1,4 @@
+
 /* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
@@ -145,7 +146,7 @@ p {
     border-radius: 8px;
     border: 1px solid var(--project-border);
     border-radius: 4px;
-    min-width: 400px;
+    width: 90%;
     max-width: 1000px;
     transition: background-color 0.3s, width 0.3s;
     display: flex;
@@ -397,8 +398,6 @@ p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
-    min-width: 380px;
-    max-width: 1190px;
 }
 
 .work-experience:hover {
@@ -435,7 +434,7 @@ p {
     font-weight: bold;
     padding-top: 1em;
     padding-bottom: 2em;
-    max-width: 80%;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -553,13 +552,24 @@ body.dark footer p a {
         font-size: 1.2em;
     }
 
+    .projects-container, .work-experience-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .work-experience .project .projects-container{
+        width: 70%;
+        max-width: 70%;
         margin-bottom: 1em;
-        justify-content: space-between;
     }
 
     .projects-container {
         justify-content: space-between;
+    }
+
+    .project {
+        flex: 1 1 calc(50% - 1em);
+        max-width: calc(50% - 1em);
     }
 
     .work-experience h3 {
