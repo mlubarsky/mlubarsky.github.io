@@ -501,6 +501,111 @@ body.dark footer p a {
     color: var(--footer-link-color);
 }
 
+/* This is nothing... */
+footer {
+    position: relative;
+    padding: 10px;
+}
+
+.tiny-button {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: var(--header-footer-bg);
+}
+
+.submit-button {
+    padding: 10px 20px;
+}
+
+/* Overlay styles */
+.overlay {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.overlay h2 {
+    color: white;
+}
+
+.overlay-content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.surprise-content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-button,
+.close-surprise-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.keypad-button {
+    width: 60px;
+    height: 60px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keypad-button:nth-child(10) {
+    grid-column: 2;
+}
+
+#secret-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.hidden {
+    display: none;
+}
+
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
     header {

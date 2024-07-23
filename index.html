@@ -143,7 +143,38 @@
     <footer>
         <p>&copy; 2024 Maxwell Lubarsky</p>
         <p>Email: <a href="mailto:mlubarsky@icloud.com">mlubarsky@icloud.com</a></p>
+        <a id="secret-button" class="tiny-button"> </a>
     </footer>
+
+    <div id="secret-overlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close-button">&times;</span>
+            <h2>Enter Secret Code</h2>
+            <div class="keypad">
+                <button class="keypad-button">1</button>
+                <button class="keypad-button">2</button>
+                <button class="keypad-button">3</button>
+                <button class="keypad-button">4</button>
+                <button class="keypad-button">5</button>
+                <button class="keypad-button">6</button>
+                <button class="keypad-button">7</button>
+                <button class="keypad-button">8</button>
+                <button class="keypad-button">9</button>
+                <button class="keypad-button">0</button>
+            </div>
+            <input type="password" id="secret-input" readonly>
+            <button id="submit-secret" class="submit-button">Submit</button>
+        </div>
+    </div>
+
+    <div id="surprise-overlay" class="overlay">
+        <div class="surprise-content">
+            <span class="close-surprise-button">&times;</span>
+            <h2>You're not supposed to see this...</h2>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+
 </body>
 </html>
