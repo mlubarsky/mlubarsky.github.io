@@ -596,6 +596,15 @@ footer {
     grid-column: 2;
 }
 
+.delete-button {
+    background-color: var(--button-delete-bg);
+    color: var(--button-delete-text);
+}
+
+.delete-button:hover {
+    background-color: var(--button-delete-hover-bg);
+}
+
 #secret-input {
     width: calc(100% - 20px);
     padding: 10px;
@@ -604,6 +613,10 @@ footer {
 
 .hidden {
     display: none;
+}
+
+.no-scroll {
+    overflow: hidden;
 }
 
 /* Adjustments for smaller screens */

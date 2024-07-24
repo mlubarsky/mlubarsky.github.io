@@ -27,90 +27,62 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleDetails.forEach(toggle => {
         toggle.addEventListener('click', () => {
             const details = toggle.parentElement.querySelector('.details');
-            console.log(details); // Check if the .details element is correctly targeted
+            console.log(details);
             toggle.classList.toggle('active');
             details.classList.toggle('active');
         });
     });
 
     const secretButton = document.getElementById('secret-button');
-    const overlay = document.getElementById('secret-overlay');
+    const secretOverlay = document.getElementById('secret-overlay');
+    const surpriseOverlay = document.getElementById('surprise-overlay');
     const closeButton = document.querySelector('.close-button');
+    const closeSurpriseButton = document.querySelector('.close-surprise-button');
     const keypadButtons = document.querySelectorAll('.keypad-button');
     const secretInput = document.getElementById('secret-input');
-    const submitButton = document.getElementById('submit-secret');
-    const surpriseOverlay = document.getElementById('surprise-overlay');
-    const closeSurpriseButton = document.querySelector('.close-surprise-button');
+    const submitSecret = document.getElementById('submit-secret');
+    const correctCode = '1234'; // Secret code
 
-    const secretCode = '1234'; // Secret code
-    let inputCode = '';
+    let enteredCode = '';
 
     secretButton.addEventListener('click', () => {
-        overlay.style.display = 'flex';
+        secretOverlay.style.display = 'flex';
+        document.body.classList.add('no-scroll');
     });
 
     closeButton.addEventListener('click', () => {
-        overlay.style.display = 'none';
-        inputCode = '';
+        secretOverlay.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+        enteredCode = '';
         secretInput.value = '';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === overlay) {
-            overlay.style.display = 'none';
-            inputCode = '';
-            secretInput.value = '';
-        } else if (event.target === surpriseOverlay) {
-            surpriseOverlay.style.display = 'none';
-        }
-    });
-
-    keypadButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            if (inputCode.length < 4) { // 4-digit code
-                inputCode += button.textContent;
-                secretInput.value = inputCode;
-            }
-        });
-    });
-
-    submitButton.addEventListener('click', () => {
-        if (inputCode === secretCode) {
-            overlay.style.display = 'none';
-            surpriseOverlay.style.display = 'flex';
-        } else {
-            alert('Incorrect code. Please try again.');
-            inputCode = '';
-            secretInput.value = '';
-        }
     });
 
     closeSurpriseButton.addEventListener('click', () => {
         surpriseOverlay.style.display = 'none';
+        document.body.classList.remove('no-scroll');
     });
 
-    // Work-in-progress
-    // function confetti() {
-    //     var duration = 5 * 1000;
-    //     var end = Date.now() + duration;
+    keypadButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (button.classList.contains('delete-button')) {
+                enteredCode = enteredCode.slice(0, -1);
+            } else if (enteredCode.length < 4) { // Length of code
+                enteredCode += button.textContent;
+            }
+            secretInput.value = enteredCode;
+        });
+    });
 
-    //     (function frame() {
-    //         confetti({
-    //             particleCount: 3,
-    //             angle: 60,
-    //             spread: 55,
-    //             origin: { x: 0 }
-    //         });
-    //         confetti({
-    //             particleCount: 3,
-    //             angle: 120,
-    //             spread: 55,
-    //             origin: { x: 1 }
-    //         });
-
-    //         if (Date.now() < end) {
-    //             requestAnimationFrame(frame);
-    //         }
-    //     }());
-    // }
+    submitSecret.addEventListener('click', () => {
+        if (enteredCode === correctCode) {
+            secretOverlay.style.display = 'none';
+            surpriseOverlay.style.display = 'flex';
+            document.body.classList.add('no-scroll');
+            confetti();
+        } else {
+            alert('Incorrect code. Try again!');
+            enteredCode = '';
+            secretInput.value = '';
+        }
+    });
 });
