@@ -693,7 +693,7 @@ footer {
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
     header {
-        padding: 5.5em 0;
+        padding: 4em 0;
     }
 
     .background-square {
