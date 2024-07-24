@@ -134,7 +134,78 @@ p {
     padding: 20px;
 }
 
-/*Profile card and background box*/
+/*Profile card and background box with animations*/
+
+.animated-square {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Keyframes for the animation */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animated-square.animated {
+    animation: fadeInScale 1s ease-out forwards;
+
+}
+
+.animated-square {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Keyframes for the square animation */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Keyframes for the profile card sliding in */
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animated-square.animated {
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+.profile-card {
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideInFromLeft 0.5s ease-out forwards;
+    animation-delay: 1s; /* Delay to start after the square animation */
+}
+
 .content-wrapper {
     display: flex;
     justify-content: center;

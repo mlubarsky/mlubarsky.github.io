@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const animatedSquare = document.querySelector('.animated-square');
+    const profileCard = document.querySelector('.profile-card');
+    
+    setTimeout(() => {
+        animatedSquare.classList.add('animated');
+        setTimeout(() => {
+            profileCard.classList.add('animated');
+        }, 1000); // Delay for square animation to finish
+    }, 300); // Initial delay of the animation
+
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     const logo = document.getElementById('logo');
