@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const keypadButtons = document.querySelectorAll('.keypad-button');
     const secretInput = document.getElementById('secret-input');
     const submitSecret = document.getElementById('submit-secret');
-    const correctCode = '1234'; // Secret code
+    const correctCode = '1300'; // Secret code
 
     let enteredCode = '';
 
