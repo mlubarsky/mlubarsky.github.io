@@ -399,6 +399,14 @@ p {
     height: auto;
 }
 
+.project .java-logo {
+    position: absolute;
+    top: 5px;
+    left: -25px;
+    width: 100px;
+    height: auto;
+}
+
 .project p {
     margin: 0.5em 0;
     color: var(--text-color);
@@ -448,6 +456,10 @@ p {
 
 .project-4::before {
     background-image: url('images/riscv.png');
+}
+
+.project-5::before {
+    background-image: url('images/search-engine.png');
 }
 
 /* Work Experience Styles */
