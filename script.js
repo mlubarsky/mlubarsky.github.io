@@ -70,7 +70,6 @@ document.querySelectorAll('.toggle-details').forEach(button => {
     });
 });
 
-
 // Theme toggle functionality
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('theme-toggle');
@@ -130,4 +129,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     });
 });
-

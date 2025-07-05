@@ -367,7 +367,6 @@ body.dark-mode .nav-toggle span {
 
 .cta-button {
   padding: 0.75rem 1.5rem;
-  /* background: var(--primary-color); */
   background: linear-gradient(135deg, #3b82f6, #9333ea);
   color: white;
   border-radius: 8px;
@@ -377,7 +376,6 @@ body.dark-mode .nav-toggle span {
 }
 
 .cta-button:hover {
-  /* background: #1d4ed8; */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   background: linear-gradient(135deg, #4a90e2, #8b5cf6);
 }
@@ -402,60 +400,6 @@ body.dark-mode .nav-toggle span {
   margin: auto;
   text-align: center;
   margin-bottom: 2rem;
-}
-
-.skills-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  overflow: hidden;
-  padding: 1rem 0;
-  width: 100%;
-  max-width: 100%;
-  position: relative;
-  flex-wrap: nowrap;
-}
-
-.skill-row {
-  display: flex;
-  justify-content: flex-start;
-  gap: 1rem;
-  animation: scrollRow 10s ease-in-out infinite alternate;
-  will-change: transform;
-  width: max-content;
-}
-.skill-row:nth-child(even) {
-  animation-direction: alternate-reverse;
-}
-@keyframes scrollRow {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(50%);
-  }
-}
-
-/* Individual skill tags */
-.skill-tag {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.6rem 1.2rem;
-  min-width: 140px;
-  border-radius: var(--border-radius);
-  font-weight: 500;
-  color: #1f2937;
-  background: var(--light-bg);
-  white-space: nowrap;
-  transition: transform 0.2s ease;
-  position: relative;
-  z-index: 1;
-}
-
-.skill-tag:hover {
-  transform: scale(1.15);
-  z-index: 2;
 }
 
 /* Experience */
@@ -554,7 +498,6 @@ body.dark-mode .nav-toggle span {
 }
 
 .project-card::after {
-  content: "↗";
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -786,7 +729,7 @@ footer a:hover {
     flex-wrap: wrap; /* allow wrapping */
     justify-content: center; /* center rows */
   }
-} /* <-- Added missing closing brace here */
+} 
 
 @media (max-width: 480px) {
   .hero-inner {
@@ -797,10 +740,6 @@ footer a:hover {
 
   .hero h1.typing-text {
     font-size: 1.5rem;
-    /* width: 100% !important; */
-    /* white-space: normal !important; */
-    /* border-right: none; /* remove typing cursor if necessary */
-    /* animation: none;     /* disable typing animation on very small screens */
   }
 
   .subtitle {
