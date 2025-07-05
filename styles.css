@@ -758,22 +758,22 @@ footer a:hover {
 
 @media (max-width: 768px) {
   .hero-inner {
-  flex-direction: column;
-  text-align: center;
+    flex-direction: column;
+    text-align: center;
   }
 
   .hero-content,
   .hero h1,
   .subtitle {
-  text-align: center;
+    text-align: center;
   }
 
   .hero h1 {
-  font-size: 2rem;
+    font-size: 2rem;
   }
 
   .subtitle {
-  font-size: 1rem;
+    font-size: 1rem;
   }
 
   .project-grid {
@@ -785,7 +785,8 @@ footer a:hover {
   .skills-list {
     flex-wrap: wrap; /* allow wrapping */
     justify-content: center; /* center rows */
-}
+  }
+} /* <-- Added missing closing brace here */
 
 @media (max-width: 480px) {
   .hero-inner {
@@ -798,9 +799,8 @@ footer a:hover {
     font-size: 1.5rem;
     /* width: 100% !important; */
     /* white-space: normal !important; */
-
-    /*border-right: none; /* remove typing cursor if necessary */
-    /*animation: none;     /* disable typing animation on very small screens */
+    /* border-right: none; /* remove typing cursor if necessary */
+    /* animation: none;     /* disable typing animation on very small screens */
   }
 
   .subtitle {
@@ -812,31 +812,47 @@ footer a:hover {
     margin-top: 1rem;
   }
 
-    .modal-content {
+  .modal-content {
     max-width: 90vw;
     width: 100%;
     box-sizing: border-box;
-    }
+  }
 
   .modal-button-wrapper {
     padding: 0 1rem;
   }
 
   #modal-link {
-    min-height: 8%;
+    min-height: 40px; /* fixed height for small screens */
     white-space: nowrap;
     font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
   }
 }
 
-  .skill-tag {
-    min-width: auto;
-    width: auto;
-    flex: 1 1 auto; /* allow shrinking and growing */
-    white-space: normal; /* allow multi-line text wrap */
-    padding: 0.5rem 0.8rem;
-    font-size: 0.9rem;
-  }
+/* Ensure consistent button min-height outside media queries */
+#modal-link {
+  min-height: 48px;
+  white-space: nowrap;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.skill-tag {
+  min-width: auto;
+  width: auto;
+  flex: 1 1 auto; /* allow shrinking and growing */
+  white-space: normal; /* allow multi-line text wrap */
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
 }
 
 .fade-in-image {
