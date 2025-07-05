@@ -1,98 +1,155 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedSquare = document.querySelector('.animated-square');
-    const profileCard = document.querySelector('.profile-card');
-    
-    setTimeout(() => {
-        animatedSquare.classList.add('animated');
-        setTimeout(() => {
-            profileCard.classList.add('animated');
-        }, 1000); // Delay for square animation to finish
-    }, 300); // Initial delay of the animation
-
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    const logo = document.getElementById('logo');
-
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        if (body.classList.contains('dark')) {
-            logo.src = 'images/ml-logo-dark.svg'; // Path to dark theme logo
-        } else {
-            logo.src = 'images/ml-logo-light.svg'; // Path to light theme logo
-        }
-    });
-
-    const links = document.querySelectorAll('nav ul li a'); // Smooth scrolling
-
-    for (const link of links) {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetId = event.currentTarget.getAttribute('href').substring(1);
-            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-
-    const toggleDetails = document.querySelectorAll('.toggle-details');
-
-    toggleDetails.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            const details = toggle.parentElement.querySelector('.details');
-            console.log(details);
-            toggle.classList.toggle('active');
-            details.classList.toggle('active');
-        });
-    });
-
-    const secretButton = document.getElementById('secret-button');
-    const secretOverlay = document.getElementById('secret-overlay');
-    const surpriseOverlay = document.getElementById('surprise-overlay');
-    const closeButton = document.querySelector('.close-button');
-    const closeSurpriseButton = document.querySelector('.close-surprise-button');
-    const keypadButtons = document.querySelectorAll('.keypad-button');
-    const secretInput = document.getElementById('secret-input');
-    const submitSecret = document.getElementById('submit-secret');
-    const correctCode = '1300'; // Secret code
-
-    let enteredCode = '';
-
-    secretButton.addEventListener('click', () => {
-        secretOverlay.style.display = 'flex';
-        document.body.classList.add('no-scroll');
-    });
-
-    closeButton.addEventListener('click', () => {
-        secretOverlay.style.display = 'none';
-        document.body.classList.remove('no-scroll');
-        enteredCode = '';
-        secretInput.value = '';
-    });
-
-    closeSurpriseButton.addEventListener('click', () => {
-        surpriseOverlay.style.display = 'none';
-        document.body.classList.remove('no-scroll');
-    });
-
-    keypadButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            if (button.classList.contains('delete-button')) {
-                enteredCode = enteredCode.slice(0, -1);
-            } else if (enteredCode.length < 4) { // Length of code
-                enteredCode += button.textContent;
-            }
-            secretInput.value = enteredCode;
-        });
-    });
-
-    submitSecret.addEventListener('click', () => {
-        if (enteredCode === correctCode) {
-            secretOverlay.style.display = 'none';
-            surpriseOverlay.style.display = 'flex';
-            document.body.classList.add('no-scroll');
-            confetti();
-        } else {
-            alert('Incorrect code. Try again!');
-            enteredCode = '';
-            secretInput.value = '';
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
         }
     });
 });
+
+// Modal functionality for project cards
+// document.addEventListener('DOMContentLoaded', () => {
+//     const modal = document.getElementById('project-modal');
+//     const modalTitle = document.getElementById('modal-title');
+//     const modalDesc = document.getElementById('modal-description');
+//     const modalLink = document.getElementById('modal-link');
+//     const closeBtn = document.querySelector('.modal-close');
+
+//     // Open modal on project card click
+//     // Using data attributes to store project details
+//     document.querySelectorAll('.project-card').forEach(card => {
+//         card.addEventListener('click', () => {
+//             const title = card.dataset.title;
+//             const link = card.dataset.link;
+//             const descId = card.dataset.descriptionId;
+//             const descContent = document.getElementById(descId);
+
+//             modalTitle.textContent = title;
+//             modalLink.href = link;
+//             modalDesc.innerHTML = descContent ? descContent.innerHTML : "<p>No description available.</p>"; // Fallback if no description is found
+
+//             modal.style.display = 'flex';
+//         });
+//     });
+
+//     // Close modal functionality
+//     closeBtn.addEventListener('click', () => modal.style.display = 'none');
+//         modal.addEventListener('click', e => {
+//         if (e.target === modal) modal.style.display = 'none';
+//         });
+//     document.addEventListener('keydown', e => {
+//         if (e.key === 'Escape') modal.style.display = 'none';
+//     });
+// });
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-description');
+    const modalLink = document.getElementById('modal-link');
+    const closeBtn = document.querySelector('.modal-close');
+
+    const modalTechStack = document.getElementById('modal-tech-stack');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => {
+        const title = card.dataset.title;
+        const link = card.dataset.link;
+        const descId = card.dataset.descriptionId;
+        const descContent = document.getElementById(descId);
+
+        // Parse tech stack
+        const techList = card.dataset.tech ? card.dataset.tech.split(',') : [];
+
+        modalTitle.textContent = title;
+        modalLink.href = link;
+        modalDesc.innerHTML = descContent ? descContent.innerHTML : "<p>No description available.</p>";
+
+        // Clear and populate tech stack container
+        modalTechStack.innerHTML = '';
+
+        // Create badges for each technology in the tech stack
+        techList.forEach(tech => {
+            const img = document.createElement('img');
+            const techName = tech.trim();
+            const badgeUrl = `https://img.shields.io/badge/${encodeURIComponent(techName)}-informational?style=plastic&logo=${encodeURIComponent(techName)}&color=grey`;
+
+            img.src = badgeUrl;
+            img.alt = `${techName} badge`;
+            img.className = 'tech-badge-img';
+            modalTechStack.appendChild(img);
+        });
+
+        modal.style.display = 'flex';
+    });
+});
+
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+        modal.addEventListener('click', e => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') modal.style.display = 'none';
+        });
+    });
+
+
+// Toggle job details in the timeline
+document.querySelectorAll('.toggle-details').forEach(button => {
+    button.addEventListener('click', () => {
+        const item = button.closest('.timeline-item');
+        const expanded = item.classList.toggle('expanded');
+        button.textContent = expanded ? 'Show Less' : 'Show More';
+    });
+});
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const toggleBtn = document.getElementById('theme-toggle');
+//   const body = document.body;
+
+//   // Load saved theme preference
+//   if (localStorage.getItem('theme') === 'dark') {
+//     body.classList.add('dark-mode');
+//     toggleBtn.textContent = '☀️';
+//   }
+
+//   toggleBtn.addEventListener('click', () => {
+//     body.classList.toggle('dark-mode');
+//     const isDark = body.classList.contains('dark-mode');
+//     toggleBtn.textContent = isDark ? '☀️' : '🌙';
+//     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+//   });
+// });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const toggle = document.getElementById('theme-toggle');
+//   const body = document.body;
+
+//   toggle.addEventListener('click', () => {
+//     body.classList.toggle('dark-mode');
+//   });
+// });
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+  const body = document.body;
+
+  function updateIcon() {
+    if (body.classList.contains('dark-mode')) {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    } else {
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+    }
+  }
+
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    updateIcon();
+  });
+
+  updateIcon(); // Set correct icon on page load
+});
+
