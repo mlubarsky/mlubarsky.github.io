@@ -18,9 +18,12 @@
         <h3 id="modal-title">Project Title</h3>
         <div id="modal-description"></div>
         <div id="modal-tech-stack" class="tech-stack-container"></div>
-        <a id="modal-link" class="view-project-button" target="_blank">
+        <div class="modal-button-wrapper"></div>
+            <a id="modal-link" class="view-project-button" target="_blank">
             <span class="ripple-bg"></span>
             View Project</a>
+        </div>
+
     </div>
 </div>
 
@@ -80,57 +83,36 @@
 <body>
     <header>
     <nav class="navbar">
-        <!-- <div class="logo">YourName</div> -->
-         <div class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <!-- <div class="logo">ML</div> -->
+        <div class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
             <i id="theme-icon" class="fas fa-moon"></i>
-            </div>
-        <ul class="nav-links">
-            <!-- <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button> -->
+        </div>
+        <!-- <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul> -->
 
-            <!-- <div class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-            <svg id="theme-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5" class="sun-core"></circle>
-                <g class="sun-rays">
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </g>
-            </svg>
-            </div> -->
-
-            <!-- <div class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-            <svg id="theme-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5" class="sun-core"></circle>
-                <g class="sun-rays">
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </g>
-            </svg>
-            </div> -->
-
-
+        <div class="nav-toggle" id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-menu">
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
         </ul>
+
     </nav>
     </header>
 
     <section class="hero">
     <div class="hero-inner">
         <div class="hero-content">
-            <h1 class="typing-text"><span class="highlight">Hi, I'm Maxwell Lubarsky</span></h1>
+            <!-- <h1 class="typing-text"><span class="highlight">Hi, I'm Maxwell Lubarsky</span></h1> -->
+            <h1 class="typing-text"><span id="typed-text"></span></h1>
+
             <p class="subtitle">Software Engineer • Systems Thinker • Curious</p>
             <a href="documents/Resume.pdf" target="_blank" class="cta-button">View Resume</a>
         </div>

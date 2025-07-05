@@ -103,53 +103,63 @@ document.querySelectorAll('.toggle-details').forEach(button => {
         button.textContent = expanded ? 'Show Less' : 'Show More';
     });
 });
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const toggleBtn = document.getElementById('theme-toggle');
-//   const body = document.body;
-
-//   // Load saved theme preference
-//   if (localStorage.getItem('theme') === 'dark') {
-//     body.classList.add('dark-mode');
-//     toggleBtn.textContent = '☀️';
-//   }
-
-//   toggleBtn.addEventListener('click', () => {
-//     body.classList.toggle('dark-mode');
-//     const isDark = body.classList.contains('dark-mode');
-//     toggleBtn.textContent = isDark ? '☀️' : '🌙';
-//     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-//   });
-// });
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const toggle = document.getElementById('theme-toggle');
-//   const body = document.body;
-
-//   toggle.addEventListener('click', () => {
-//     body.classList.toggle('dark-mode');
-//   });
-// });
+// Theme toggle functionality
 document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.getElementById('theme-toggle');
-  const icon = document.getElementById('theme-icon');
-  const body = document.body;
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    const body = document.body;
 
-  function updateIcon() {
+    function updateIcon() {
     if (body.classList.contains('dark-mode')) {
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
     } else {
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
     }
-  }
+    }
 
-  toggle.addEventListener('click', () => {
+    toggle.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
     updateIcon();
-  });
+    });
 
   updateIcon(); // Set correct icon on page load
+});
+
+// Typewriter effect for the introduction text
+document.addEventListener('DOMContentLoaded', () => {
+    const text = "Hi, I'm Maxwell Lubarsky";
+    const container = document.getElementById('typed-text');
+    let index = 0;
+
+    const type = () => {
+    if (index < text.length) {
+        container.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 60);
+    }
+    };
+
+    type();
+});
+
+// Navigation toggle for mobile view
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu');
+
+    toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    menu.classList.toggle('show');
+    });
+
+    // Optional: Close menu when clicking a nav link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        menu.classList.remove('show');
+    });
+    });
 });
 
