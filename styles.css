@@ -472,6 +472,26 @@ body.dark-mode .nav-toggle span {
 }
 
 /* Projects */
+
+.card-view-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.4); /* Light gray in light mode */
+  pointer-events: none;
+  user-select: none;
+}
+
+body.dark-mode .card-view-label {
+  color: rgba(255, 255, 255, 0.4); /* Light semi-transparent in dark mode */
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -487,7 +507,9 @@ body.dark-mode .nav-toggle span {
   padding: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  padding-bottom: 2.5rem;
 }
+
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
@@ -769,6 +791,35 @@ footer a:hover {
   }
 }
 
+@media (max-width: 390px) {
+  .hero-inner {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero h1.typing-wrapper {
+    font-size: 1.4rem;
+    word-wrap: break-word;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero-image img {
+    width: 150px;
+    height: auto;
+  }
+}
+
 /* Ensure consistent button min-height outside media queries */
 #modal-link {
   min-height: 48px;
@@ -813,11 +864,13 @@ footer a:hover {
 }
 
 .typing-text {
-  width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid #45474b;
-  animation: typing 2.5s steps(30, end) forwards, blink 0.7s step-end infinite;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 600;
+  color: #1f2937;
+  display: inline-block;
+  word-break: break-word;
+  line-height: 1.2;
+  max-width: 100%;
 }
 
 /* Typing effect for hero subtitle */
