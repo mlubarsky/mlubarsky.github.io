@@ -791,7 +791,7 @@ footer a:hover {
   }
 }
 
-@media (max-width: 390px) {
+/* @media (max-width: 390px) {
   .hero-inner {
     flex-direction: column;
     align-items: center;
@@ -818,7 +818,7 @@ footer a:hover {
     width: 150px;
     height: auto;
   }
-}
+} */
 
 /* Ensure consistent button min-height outside media queries */
 #modal-link {
