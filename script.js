@@ -1,98 +1,131 @@
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+});
+
+// Modal functionality for project cards
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedSquare = document.querySelector('.animated-square');
-    const profileCard = document.querySelector('.profile-card');
-    
-    setTimeout(() => {
-        animatedSquare.classList.add('animated');
-        setTimeout(() => {
-            profileCard.classList.add('animated');
-        }, 1000); // Delay for square animation to finish
-    }, 300); // Initial delay of the animation
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-description');
+    const modalLink = document.getElementById('modal-link');
+    const closeBtn = document.querySelector('.modal-close');
+    const modalTechStack = document.getElementById('modal-tech-stack');
 
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    const logo = document.getElementById('logo');
+    document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const { title, link, descriptionId, tech } = card.dataset;
+        const descContent = document.getElementById(descriptionId);
 
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        if (body.classList.contains('dark')) {
-            logo.src = 'images/ml-logo-dark.svg'; // Path to dark theme logo
-        } else {
-            logo.src = 'images/ml-logo-light.svg'; // Path to light theme logo
-        }
+        const techList = tech ? tech.split(',') : [];
+
+        modalTitle.textContent = title;
+        modalLink.href = link;
+        modalDesc.innerHTML = descContent ? descContent.innerHTML : "<p>No description available.</p>";
+
+        modalTechStack.innerHTML = '';
+
+        techList.forEach(techName => {
+        const img = document.createElement('img');
+        const trimmedTech = techName.trim();
+        const badgeUrl = `https://img.shields.io/badge/${encodeURIComponent(trimmedTech)}-informational?style=plastic&logo=${encodeURIComponent(trimmedTech)}&color=grey`;
+
+        img.src = badgeUrl;
+        img.alt = `${trimmedTech} badge`;
+        img.className = 'tech-badge-img';
+        modalTechStack.appendChild(img);
+        });
+
+        modal.style.display = 'flex';
+    });
     });
 
-    const links = document.querySelectorAll('nav ul li a'); // Smooth scrolling
+    const closeModal = () => { modal.style.display = 'none'; };
 
-    for (const link of links) {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetId = event.currentTarget.getAttribute('href').substring(1);
-            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-        });
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => {
+    if (e.target === modal) {
+        closeModal();
     }
+    });
+    document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+    });
+});
 
-    const toggleDetails = document.querySelectorAll('.toggle-details');
+// Toggle job details in the timeline
+document.querySelectorAll('.toggle-details').forEach(button => {
+    button.addEventListener('click', () => {
+    const item = button.closest('.timeline-item');
+    const expanded = item.classList.toggle('expanded');
+    button.textContent = expanded ? 'Show Less' : 'Show More';
+    });
+});
 
-    toggleDetails.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            const details = toggle.parentElement.querySelector('.details');
-            console.log(details);
-            toggle.classList.toggle('active');
-            details.classList.toggle('active');
-        });
+// Theme toggle functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    const { body } = document;
+
+    const updateIcon = () => {
+    if (body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+    };
+
+    toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    updateIcon();
     });
 
-    const secretButton = document.getElementById('secret-button');
-    const secretOverlay = document.getElementById('secret-overlay');
-    const surpriseOverlay = document.getElementById('surprise-overlay');
-    const closeButton = document.querySelector('.close-button');
-    const closeSurpriseButton = document.querySelector('.close-surprise-button');
-    const keypadButtons = document.querySelectorAll('.keypad-button');
-    const secretInput = document.getElementById('secret-input');
-    const submitSecret = document.getElementById('submit-secret');
-    const correctCode = '1300'; // Secret code
+    updateIcon(); // Set correct icon on page load
+});
 
-    let enteredCode = '';
+// Typewriter effect for the introduction text
+document.addEventListener('DOMContentLoaded', () => {
+    const text = "Hi, I'm Maxwell Lubarsky";
+    const container = document.getElementById('typed-text');
+    let index = 0;
 
-    secretButton.addEventListener('click', () => {
-        secretOverlay.style.display = 'flex';
-        document.body.classList.add('no-scroll');
+    const type = () => {
+    if (index < text.length) {
+        container.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 60);
+    }
+    };
+
+    type();
+});
+
+// Navigation toggle for mobile view
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu');
+
+    toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    menu.classList.toggle('show');
     });
 
-    closeButton.addEventListener('click', () => {
-        secretOverlay.style.display = 'none';
-        document.body.classList.remove('no-scroll');
-        enteredCode = '';
-        secretInput.value = '';
+    // Optional: Close menu when clicking a nav link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        menu.classList.remove('show');
     });
-
-    closeSurpriseButton.addEventListener('click', () => {
-        surpriseOverlay.style.display = 'none';
-        document.body.classList.remove('no-scroll');
-    });
-
-    keypadButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            if (button.classList.contains('delete-button')) {
-                enteredCode = enteredCode.slice(0, -1);
-            } else if (enteredCode.length < 4) { // Length of code
-                enteredCode += button.textContent;
-            }
-            secretInput.value = enteredCode;
-        });
-    });
-
-    submitSecret.addEventListener('click', () => {
-        if (enteredCode === correctCode) {
-            secretOverlay.style.display = 'none';
-            surpriseOverlay.style.display = 'flex';
-            document.body.classList.add('no-scroll');
-            confetti();
-        } else {
-            alert('Incorrect code. Try again!');
-            enteredCode = '';
-            secretInput.value = '';
-        }
     });
 });

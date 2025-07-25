@@ -1,211 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Maxwell Lubarsky</title>
+    <meta name="description" content="Portfolio website of Maxwell Lubarsky.">
+    <meta name="author" content="Maxwell Lubarsky">
+    <meta name="google-site-verification" content="qXU1rmnz2rfpUBqpWXwUrUP5e-PZwu7sEmMvhLVzwsk">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-32x32.png">
 </head>
+
+<!-- Project Modal Overlay -->
+<div id="project-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <h3 id="modal-title">Project Title</h3>
+        <div id="modal-description"></div>
+        <div id="modal-tech-stack" class="tech-stack-container"></div>
+        <div class="modal-button-wrapper"></div>
+            <a id="modal-link" class="view-project-button" target="_blank">
+            <span class="ripple-bg"></span>
+            View Project</a>
+        </div>
+    </div>
+</div>
+
+<!-- Hidden modal project descriptions -->
+<div id="desc-carbon" class="modal-description-content" style="display: none;">
+    <p><strong>Carbon in Context</strong> is a project that helps users understand greenhouse gas emissions through everyday comparisons, with the additional goal of eliminating greenwashing and misinformation.</p>
+    <ul>
+        <li>Features real-world metaphors including "miles driven" and "hours of netflix watched".</li>
+        <li>Implements a cloropleth map of the USA with CO2 emissions per state.</li>
+        <li>Provides access to Project Drawdown's climate solutions.</li>
+        <li>Allows open access to emissions data.</li>
+    </ul>
+</div>
+
+<div id="desc-search" class="modal-description-content" style="display: none;">
+    <p>This search engine was created from scratch in 2000 source-lines of code (SLOC), and utilizes Apache OpenNLP, TD-IDF results rankings, Apache Log4j2, sockets, HTTP, regular expressions, Eclipse Jetty, servlets, Bulma, JUnit, and Apache Maven.</p>
+    <ul>
+        <li>Backend written in Java, Frontend written in HTML/CSS, JavaScript.</li>
+        <li>Implements a custom inverted index data structure.</li>
+        <li>Multithreaded web crawler supporting thousands of pages.</li>
+    </ul>
+</div>
+
+<div id="desc-aqi-predictor" class="modal-description-content" style="display: none;">
+    <p>This predictive time series model uses a Long Short-Term Memory (LSTM) recurrent neural network to predict San Francisco’s AQI based on historical weather and pollution data.</p>
+    <ul>
+        <li>Built with ML libraries including TensorFlow, Scikit-learn, Pandas, Numpy, Matplotlib.</li>
+        <li>Achieved an 87% prediction accuracy after training and validation.</li>
+        <li>Visualizes real vs. predicted AQI values using Matplotlib.</li>
+    </ul>
+</div>
+
+<div id="desc-kmeans" class="modal-description-content" style="display: none;">
+    <p>This algorithm was created from scratch, then trained and evaluated on blobs and weather datasets.</p>
+    <ul>
+        <li>Built in Jupyter Notebook using Python.</li>
+        <li>Achieved a 97.5% clustering accuracy, which is on par with Scikit-learn's implementation.</li>
+    </ul>
+</div>
+
+<div id="desc-network-compression" class="modal-description-content" style="display: none;">
+    <p>Implemented client/server and standalone applications which utilize network sockets to send packets between both machines, and perform a calculation that shows whether there is compression on a network link.</p>
+    <ul>
+        <li>All 3 applications written in C, utilizing WireShark for packet inspection and GDB for debugging.</li>
+        <li>Installed Linux images on Oracle VM VirtualBox machines, which were used as client/server.</li>
+    </ul>
+</div>
+
+<div id="desc-riscv-emulator" class="modal-description-content" style="display: none;">
+    <p>Created an emulator for the RISC-V instruction set architecture that can perform various assembly instructions, analyze the instructions used in a emulated C program.</p>
+    <ul>
+        <li>Written in C and used GDB for debugging.</li>
+        <li>Supports most RISC-V instructions.</li>
+        <li>Utilizes direct mapped and set associative cache</li>
+    </ul>
+</div>
+
 <body>
     <header>
-        <nav>
-            <ul class="nav-links">
-                <li><img src="images/ml-logo-light.svg" alt="ML Logo" class="logo" id="logo"></li>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#work-experience">Experience</a></li>
-            </ul>
-            <div class="social-icons">
-                <a href="https://linkedin.com/in/maxwelllubarsky" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/mlubarsky" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <button id="theme-toggle">Toggle Theme</button>
-            </div>
-        </nav>
+    <nav class="navbar">
+        <div class="theme-toggle" id="theme-toggle">
+            <i id="theme-icon" class="fas fa-moon"></i>
+        </div>
+
+        <div class="nav-toggle" id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="#about-maxwell-lubarsky">About</a></li>
+            <li><a href="#experience-maxwell-lubarsky">Experience</a></li>
+            <li><a href="#projects-maxwell-lubarsky">Projects</a></li>
+        </ul>
+
+    </nav>
     </header>
 
-    <main>
-        <section id="home">
-            <div class="content-wrapper animated-square">
-                <div class="background-square">
-                    <div class="profile-card-container">
-                        <div class="profile-card">
-                            <img src="images/headshot.png" alt="Maxwell Lubarsky Headshot" class="headshot">
-                            <a href="documents/Resume.pdf" target="_blank" class="resume-button">View Resume</a>
-                        </div>
-                        <div class="bio">
-                            <h1>Welcome to My Portfolio</h1>
-                            <p>Hello! My name is Maxwell Lubarsky. I graduated from the University of San Francisco with a B.S. in Computer Science, and am passionate about software development and technology.</p>
-                        </div>
-                    </div>
-                    <section id="about">
-                        <h2>About Me</h2>
-                        <p>I am a hardworking and persistent person, and consider myself to be very honest, loyal, reliable, friendly, and easy to get along with. I always strive to do my best in everything, whether it's at school, work, home, in any extracurricular activities or in my personal life.</p>
-                        <p>My favorite hobbies include traveling to different places and trying new food, playing video games, and learning about all the quirks around technology.</p>
-                    </section>
-                </div>
-            </div>
-        </section>
+    <section class="hero">
+    <div class="hero-inner">
+        <div class="hero-content">
+            <h1 class="typing-text"><span id="typed-text"></span></h1>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="projects-container">
-                <div class="project project-6">
-                    <img src="images/logo_2.png" alt="Carbon in Context Logo" class="cic-logo">
-                    <h3>Carbon in Context</h3>
-                    <p>Took part in creating a web application that puts greenhouse gas emissions into intuitive comparisons that reflect real-life contexts. Utilized Flask framework in Python for backend, JavaScript, Html, and CSS for frontend, PostgreSQL for database, Railway paired with Cloudflare for hosting, and GitHub for version control.</p>
-                    <a href="https://carbonincontext.com" target="_blank">View Product</a>
-                </div>
-                <div class="project project-5">
-                    <img src="images/java.png" alt="Java Logo" class="java-logo">
-                    <h3>Full Stack Search Engine</h3>
-                    <p>Developed a full-stack search engine with an in-memory inverted index and multithreaded web crawler in 2000 source-lines of code (SLOC), Apache OpenNLP, TD-IDF, Apache Log4j2, sockets, HTTP, regular expressions, Eclipse Jetty, servlets, HTML, Bulma, GitHub, Eclipse, JUnit, and Apache Maven.</p>
-                    <a href="images/search-engine-demo.mp4" target="_blank">View Demo</a>
-                </div>
-                <div class="project project-1">
-                    <img src="images/python.png" alt="Python Logo" class="python-logo">
-                    <h3>AQI Predictor</h3>
-                    <p>Created a Long Short-Term memory recurrent neural network model that predicts San Francisco’s Air Quality Index, which achieved an 87% prediction accuracy. </p>
-                    <a href="https://github.com/mlubarsky/AQI-Predictor.git" target="_blank">View on GitHub</a>
-                </div>
-                <div class="project project-2">
-                    <img src="images/python.png" alt="Python Logo" class="python-logo">
-                    <h3>KMeans</h3>
-                    <p>Wrote my own implementation of the KMeans classification algorithm. Achieved a 97.5% clustering accuracy, which is on par with Scikit-learn's implementation of the algorithm.</p>
-                    <a href="https://github.com/mlubarsky/KMeans.git" target="_blank">View on GitHub</a>
-                </div>
-                <div class="project project-3">
-                    <img src="images/c.png" alt="C Logo" class="c-logo">
-                    <h3>Network Compression Detection</h3>
-                    <p>Implemented client/server and standalone applications which utilize network sockets to send packets and perform a calculation that shows whether there is compression on a network link.</p>
-                    <a href="https://github.com/mlubarsky/Network-Compression-Detection.git" target="_blank">View on GitHub</a>
-                </div>
-                <div class="project project-4">
-                    <img src="images/c.png" alt="C Logo" class="c-logo">
-                    <h3>RISC-V Emulator</h3>
-                    <p>Created an emulator for the RISC-V instruction set architecture that can perform various assembly instructions, analyze the instructions used in a emulated C program, and utilizes direct mapped and set associative cache.</p>
-                    <a href="https://github.com/mlubarsky/RISCV-V-Emulator.git" target="_blank">View on GitHub</a>
-                </div>
-            </div>
-        </section>
+            <p class="subtitle">Software Engineer • Systems Thinker • Curiosity-driven</p>
+            <a href="documents/Resume.pdf" target="_blank" class="cta-button">View Resume</a>
+        </div>
+        <div class="hero-image fade-in-image">
+            <img src="images/headshot_180x180.png" alt="Maxwell Lubarsky" />
+        </div>
+    </div>
+    </section>
 
-        <section id="work-experience">
-            <h2>Work Experience</h2>
-            <div class="work-experience-container">
-                <div class="work-experience">
-                    <div class="brief-description">
-                        <h3>
-                            <img src="images/project_drawdown_logo.jpg" alt="USF Logo" class="work-logo">
-                            Software Engineer Intern
-                            <span class="work-dates">Jan 2025 - May 2025</span>
-                        </h3>
-                        <p>Took part in creating a web application that puts greenhouse gas emissions into intuitive comparisons that reflect real-life contexts.</p>
-                    </div>
-                    <div class="details">
-                        <ul>
-                            <li>Developed the backend and frontend for the comparison cards, a key feature that allows users to contextualize  emissions across different equivalency metrics such as Cars Driven, Flights from LA to NY, and many more.</li>
-                            <li>Enhanced various UI components of the site, including the search bar and header/footer, and fixed bugs, to ensure seamless functionality and user experience.</li>
-                            <li>Collaborated with the team and sponsor to redesign the user interface, utilizing a dot exercise with the goal of aligning on a shared vision from all of our wireframe designs.</li>
-                        </ul>
-                    </div>
-                    <div class="toggle-details">
-                        <div class="arrow"></div>
-                    </div>
-                </div>
-                <div class="work-experience">
-                    <div class="brief-description">
-                        <h3>
-                            <img src="images/usf-logo-green.png" alt="USF Logo" class="work-logo">
-                            Application Technician
-                            <span class="work-dates">May 2023 - May 2025</span>
-                        </h3>
-                        <p>Working alongside the admins and programmers to assist them with tasks, and providing technical support to clients for various applications.</p>
-                    </div>
-                    <div class="details">
-                        <ul>
-                            <li>Developing new, and enhancing existing documentation for application support, including documenting knowledge-base articles and updating an outage tracker.</li>
-                            <li>Managing multiple ticket queues by escalating tickets to the appropriate primary and secondary support groups, following up with clients.</li>
-                            <li>Provided troubleshooting support for applications such as
-                                Ellucian Banner, 
-                                Blue Course Evaluations,
-                                Canvas,
-                                Concur,
-                                ECFileGateway,
-                                EMS,
-                                Jaggaer Hilltop Shop,
-                                ODS,
-                                Qualtrics,
-                                StarRez,
-                                and more.
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="toggle-details">
-                        <div class="arrow"></div>
-                    </div>
-                </div>
-                <div class="work-experience">
-                    <div class="brief-description">
-                        <h3>
-                            <img src="images/usf-logo-green.png" alt="USF Logo" class="work-logo">
-                            Help Desk Technician
-                            <span class="work-dates">Jun 2022 - May 2023</span>
-                        </h3>
-                        <p>Provided technical support for a wide array of applications and technologies, to faculty, staff, and students.</p>
-                    </div>
-                    <div class="details">
-                        <ul>
-                            <li>Provided technical support to a total of 5000 faculty, staff, and students, by answering phone calls and providing verbal troubleshooting, as well as assisting clients in person via walk-ins.</li>
-                            <li>Created, responded, and followed-up to tickets in the ServiceNow ticketing system.</li>
-                            <li>Troubleshot issues with on-campus Wi-Fi networks, GlobalProtect VPN, Printing, Canvas, Cisco Jabber, Ellucian Banner, Duo Mobile, Gmail, and the University’s web-based app.</li>
-                        </ul>
-                    </div>
-                    <div class="toggle-details">
-                        <div class="arrow"></div>
-                    </div>
-                </div>
+    <section id="about-maxwell-lubarsky" class="section about">
+    <h2>About Me</h2>
+    <p>I graduated from the University of San Francisco with a B.S. in Computer Science, and am passionate about software development and technology. I'm a hardworking and persistent person, and consider myself to be honest, reliable, friendly, loyal, and easy to get along with. I always strive to do my best in everything, whether it's at school, work, home, in any extracurricular activities or in my personal life.</p>
+    </section>
+
+    <section id="experience-maxwell-lubarsky" class="section experience">
+    <h2>Work Experience</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <img src="images/project_drawdown_logo.jpg" alt="PD Logo" class="company-logo" />
+                <h3>Software Engineer Intern — Project Drawdown</h3>
             </div>
-        </section>
-    </main>
+            <span class="date">Jan 2025 – May 2025</span>
+            <p>Took part in creating a web application that puts greenhouse gas emissions into intuitive comparisons that reflect real-life contexts.</p>
+            <ul class="job-details">
+                <li>Built full-stack comparison cards to contextualize emissions via metrics like Cars Driven and Flights LA–NY.</li>
+                <li>Improved UI components (search bar, header/footer) and resolved bugs for smoother UX.</li>
+                <li>Led UI redesign using team-wide dot exercise to unify vision across wireframes.</li>
+            </ul>
+            <button class="toggle-details">Show More</button>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <img src="images/usf-logo-green_28x28.png" alt="USF Logo" class="company-logo" />
+                <h3>Application Technician — University of San Francisco, ITS</h3>
+            </div>
+            <span class="date">May 2023 - May 2025</span>
+            <p>Worked alongside admins and programmers to assist with tasks, and provided technical support to clients for various applications.</p>
+            <ul class="job-details">
+                <li>Authored and updated support docs, including knowledge base articles and an outage tracker.</li>
+                <li>Managed multiple ticket queues, escalating issues and following up with clients.</li>
+                <li>Troubleshot enterprise apps like Banner, Canvas, Concur, Qualtrics, StarRez, and more.</li>
+            </ul>
+            <button class="toggle-details">Show More</button>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                    <img src="images/usf-logo-green.png" alt="USF Logo" class="company-logo" />
+                    <h3>Help Desk Technician — University of San Francisco, ITS</h3>
+                </div>
+                <span class="date">June 2022 - May 2023</span>
+                <p>Provided technical support for a wide array of applications and technologies, to faculty, staff, and students.</p>
+            <ul class="job-details">
+                <li>Supported 5,000+ faculty, staff, and students via phone and walk-in troubleshooting.</li>
+                <li>Managed support tickets in ServiceNow, including creation, responses, and follow-ups.</li>
+                <li>Resolved issues with Wi-Fi, VPN, printing, Gmail, Canvas, Banner, Duo, and more.</li>
+            </ul>
+            <button class="toggle-details">Show More</button>
+        </div>
+    </div>
+    </section>
+
+    <section id="projects-maxwell-lubarsky" class="section projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+        <div class="project-card"
+            data-title="Carbon in Context"
+            data-link="https://carbonincontext.com"
+            data-description-id="desc-carbon"
+            data-tech="Python, Flask, JavaScript, HTML5, CSS, PostgreSQL, Railway, Cloudflare, GitHub">
+        <h3>Carbon in Context</h3>
+        <p>A web application that puts greenhouse gas emissions into intuitive comparisons that reflect real-life contexts.</p>
+        <div class="card-view-label">View</div>
+        </div>
+
+        <div class="project-card"
+            data-title="Search Engine"
+            data-link="images/search-engine-demo.mp4"
+            data-description-id="desc-search"
+            data-tech="Java, JavaScript, HTML5, Bulma, Eclipse Jetty, Apache Maven, GitHub">
+        <h3>Search Engine</h3>
+        <p>A full-stack search engine with an in-memory inverted index and multithreaded web crawler.</p>
+        <div class="card-view-label">View</div>
+        </div>
+
+        <div class="project-card"
+            data-title="Air Quality Index (AQI) Predictor"
+            data-link="https://github.com/mlubarsky/AQI-Predictor.git"
+            data-description-id="desc-aqi-predictor"
+            data-tech="Python, TensorFlow, Scikit-learn, Pandas, Numpy, Jupyter, GitHub">
+        <h3>Air Quality Index (AQI) Predictor</h3>
+        <p>A machine learning model that predicts San Francisco’s AQI.</p>
+        <div class="card-view-label">View</div>
+        </div>
+
+        <div class="project-card"
+            data-title="KMeans"
+            data-link="https://github.com/mlubarsky/KMeans.git"
+            data-description-id="desc-kmeans"
+            data-tech="Python, Jupyter, Pandas, Numpy, GitHub">
+        <h3>KMeans</h3>
+        <p>An implementation of the KMeans classification algorithm.</p>
+        <div class="card-view-label">View</div>
+        </div>
+
+        <div class="project-card"
+            data-title="Network Compression Detection"
+            data-link="https://github.com/mlubarsky/Network-Compression-Detection.git"
+            data-description-id="desc-network-compression"
+            data-tech="C, Ubuntu, Wireshark, Oracle-VirtualBox, GitHub">
+        <h3>Network Compression Detection</h3>
+        <p>An application that detects whether there is compression on a network link.</p>
+        <div class="card-view-label">View</div>
+        </div>
+
+        <div class="project-card"
+            data-title="RISC-V Emulator"
+            data-link="https://github.com/mlubarsky/RISCV-V-Emulator.git"
+            data-description-id="desc-riscv-emulator"
+            data-tech="C, Ubuntu, RISCV, GitHub">
+        <h3>RISC-V Emulator</h3>
+        <p>An emulator written in C for the RISC-V instruction set architecture.</p>
+        <div class="card-view-label">View</div>
+        </div>
+    </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Maxwell Lubarsky</p>
-        <p>Email: <a href="mailto:mlubarsky@icloud.com">mlubarsky@icloud.com</a></p>
-        <a id="secret-button" class="tiny-button"> </a>
+    <p>© 2025 Maxwell Lubarsky</p>
+    <div class="social-links">
+        <a href="https://github.com/mlubarsky" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/maxwelllubarsky" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
     </footer>
 
-    <div id="secret-overlay" class="overlay">
-        <div class="overlay-content">
-            <span class="close-button">&times;</span>
-            <h2>Enter Secret Code</h2>
-            <div class="keypad">
-                <button class="keypad-button">1</button>
-                <button class="keypad-button">2</button>
-                <button class="keypad-button">3</button>
-                <button class="keypad-button">4</button>
-                <button class="keypad-button">5</button>
-                <button class="keypad-button">6</button>
-                <button class="keypad-button">7</button>
-                <button class="keypad-button">8</button>
-                <button class="keypad-button">9</button>
-                <button class="keypad-button">0</button>
-                <button class="keypad-button delete-button">Delete</button>
-            </div>
-            <input type="password" id="secret-input" readonly>
-            <button id="submit-secret" class="submit-button">Submit</button>
-        </div>
-    </div>
-
-    <div id="surprise-overlay" class="overlay">
-        <div class="surprise-content">
-            <span class="close-surprise-button">&times;</span>
-            <h2>I love you, Kay <3</h2>
-        </div>
-    </div>
-
     <script src="script.js"></script>
-
 </body>
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Maxwell Lubarsky",
+    "url": "https://mlubarsky.github.io",
+    "sameAs": [
+        "https://www.linkedin.com/in/maxwelllubarsky/",
+        "https://github.com/mlubarsky"
+    ],
+    "jobTitle": "Software Engineer"
+    }
+</script>
 </html>
