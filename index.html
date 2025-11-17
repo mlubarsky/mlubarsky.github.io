@@ -34,6 +34,15 @@
 </div>
 
 <!-- Hidden modal project descriptions -->
+ <div id="desc-hirearchy" class="modal-description-content" style="display: none;">
+    <p><strong>Hirearchy</strong> is a project that helps users neatly organize and keep track of jobs they applied to.</p>
+    <ul>
+        <li>Built with Java Springboot backend, JavaScript/HTML/CSS frontend, and Mongodb database.</li>
+        <li>Deployed with Docker containers.</li>
+        <li>Features secure login using Auth0.</li>
+    </ul>
+</div>
+
 <div id="desc-carbon" class="modal-description-content" style="display: none;">
     <p><strong>Carbon in Context</strong> is a project that helps users understand greenhouse gas emissions through everyday comparisons, with the additional goal of eliminating greenwashing and misinformation.</p>
     <ul>
@@ -132,6 +141,20 @@
     <div class="timeline">
         <div class="timeline-item">
             <div class="timeline-header">
+                <img src="images/usf-logo-green_28x28.png" alt="USF Logo" class="company-logo" />
+                <h3>Mobile Developer — University of San Francisco, ITS</h3>
+            </div>
+            <span class="date">Oct 2025 - Present</span>
+            <p>Building features within the university’s mobile app, USFMobile</p>
+            <ul class="job-details">
+                <li>Learning the MERN tech stack (Mongodb, Express.js, React, Node.js) and CampusM AEK.</li>
+                <li>Keeping track of tickets in Jira.</li>
+            </ul>
+            <button class="toggle-details">Show More</button>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
                 <img src="images/project_drawdown_logo.jpg" alt="PD Logo" class="company-logo" />
                 <h3>Software Engineer Intern — Project Drawdown</h3>
             </div>
@@ -180,6 +203,16 @@
     <section id="projects-maxwell-lubarsky" class="section projects">
     <h2>Projects</h2>
     <div class="project-grid">
+        <div class="project-card"
+            data-title="Hirearchy"
+            data-link="https://github.com/mlubarsky/Hirearchy.git"
+            data-description-id="desc-hirearchy"
+            data-tech="Java Springboot, JavaScript, HTML5, CSS, Mongodb, Auth0, Docker, GitHub">
+        <h3>Hirearchy</h3>
+        <p>A web application that allows neat organization and tracking of job applications with reminders.</p>
+        <div class="card-view-label">View</div>
+        </div>
+
         <div class="project-card"
             data-title="Carbon in Context"
             data-link="https://carbonincontext.com"
