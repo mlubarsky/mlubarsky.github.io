@@ -1,0 +1,30 @@
+---
+import { projects } from '../data/projects';
+import FeaturedProject from './FeaturedProject.astro';
+import ProjectCard from './ProjectCard.astro';
+
+const featured = projects.filter((p) => p.featured);
+const compact  = projects.filter((p) => !p.featured);
+---
+
+<section id="projects" class="projects">
+  <div class="projects-inner">
+    <div class="section-header animate-on-scroll">
+      <h2>Things I've Built</h2>
+    </div>
+
+    <!-- Featured projects -->
+    <div class="featured-projects">
+      {featured.map((project, i) => (
+        <FeaturedProject project={project} index={i} />
+      ))}
+    </div>
+
+    <!-- Compact projects -->
+    <div class="compact-projects">
+      {compact.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </div>
+</section>

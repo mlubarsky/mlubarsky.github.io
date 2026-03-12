@@ -1,0 +1,63 @@
+.skills {
+  padding: var(--section-spacing) 2rem;
+  background: var(--color-bg);
+}
+
+.skills-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skill-category {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.category-name {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 0.4rem;
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Staggered badge entrance */
+.tech-pill {
+  --badge-index: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.3s ease calc(var(--badge-index) * 20ms),
+    transform 0.3s ease calc(var(--badge-index) * 20ms),
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.skills.is-visible .tech-pill {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .skill-category {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}

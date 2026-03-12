@@ -1,0 +1,30 @@
+---
+import { experience } from '../data/experience';
+import TimelineItem from './TimelineItem.astro';
+---
+
+<section id="experience" class="experience">
+  <div class="experience-inner">
+    <div class="section-header animate-on-scroll">
+      <h2>Work History</h2>
+    </div>
+
+    <div class="timeline">
+      {experience.map((role) => (
+        <TimelineItem role={role} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  // Expand/collapse timeline items
+  document.querySelectorAll('.toggle-details').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.timeline-item');
+      var expanded = item.classList.toggle('expanded');
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      btn.textContent = expanded ? '− Show less' : '+ Show more';
+    });
+  });
+</script>

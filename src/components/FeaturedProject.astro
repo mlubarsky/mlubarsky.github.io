@@ -1,0 +1,79 @@
+---
+import type { Project } from '../data/projects';
+
+export interface Props {
+  project: Project;
+  index: number;
+}
+
+const { project, index } = Astro.props;
+
+// Encode bullet array as pipe-separated string for data attribute
+const bulletsEncoded = project.bullets.join('||');
+const techEncoded    = project.tech.join(',');
+
+// Placeholder initial (first letter of title)
+const initial = project.title.charAt(0);
+---
+
+<article
+  class="featured-card animate-on-scroll"
+  data-modal-trigger
+  data-title={project.title}
+  data-link={project.link}
+  data-link-label={project.linkLabel}
+  data-description={project.description}
+  data-tech={techEncoded}
+  data-bullets={bulletsEncoded}
+  tabindex="0"
+  role="button"
+  aria-label={`View details for ${project.title}`}
+>
+  <!-- Screenshot or placeholder (with macOS chrome) -->
+  <div class="featured-preview">
+    <div class="macos-chrome">
+      <span class="macos-dot red"></span>
+      <span class="macos-dot yellow"></span>
+      <span class="macos-dot green"></span>
+    </div>
+    <div class:list={['featured-screenshot', { 'is-logo': project.screenshotIsLogo }]}>
+      {project.screenshot ? (
+        <img
+          src={project.screenshot}
+          alt={`${project.title} logo`}
+          loading="lazy"
+        />
+      ) : (
+        <div class="featured-placeholder">{initial}</div>
+      )}
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="featured-content">
+    <span class="featured-label">Featured Project {String(index + 1).padStart(2, '0')}</span>
+    <h3 class="featured-title">{project.title}</h3>
+    <p class="featured-hook">{project.hook}</p>
+
+    <div class="featured-tech">
+      {project.tech.slice(0, 5).map((t) => (
+        <span class="tech-pill">{t}</span>
+      ))}
+    </div>
+
+    <div class="featured-cta">
+      <a
+        href={project.link}
+        target="_blank"
+        rel="noopener"
+        class="cta-link"
+        onclick="event.stopPropagation()"
+      >
+        {project.linkLabel} →
+      </a>
+      <button class="cta-details" onclick="event.stopPropagation(); this.closest('[data-modal-trigger]').click()">
+        Details
+      </button>
+    </div>
+  </div>
+</article>

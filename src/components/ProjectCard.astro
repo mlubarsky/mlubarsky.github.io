@@ -1,0 +1,39 @@
+---
+import type { Project } from '../data/projects';
+
+export interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+
+const bulletsEncoded = project.bullets.join('||');
+const techEncoded    = project.tech.join(',');
+---
+
+<article
+  class="project-card animate-on-scroll"
+  data-modal-trigger
+  data-title={project.title}
+  data-link={project.link}
+  data-link-label={project.linkLabel}
+  data-description={project.description}
+  data-tech={techEncoded}
+  data-bullets={bulletsEncoded}
+  tabindex="0"
+  role="button"
+  aria-label={`View details for ${project.title}`}
+>
+  <h3 class="project-card-title">{project.title}</h3>
+  <p class="project-card-hook">{project.hook}</p>
+
+  <div class="project-card-tech">
+    {project.tech.slice(0, 3).map((t) => (
+      <span class="tech-pill">{t}</span>
+    ))}
+  </div>
+
+  <div class="project-card-footer">
+    <span class="card-view-link">View details →</span>
+  </div>
+</article>

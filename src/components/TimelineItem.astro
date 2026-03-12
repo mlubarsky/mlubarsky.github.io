@@ -1,0 +1,44 @@
+---
+import type { Role } from '../data/experience';
+
+export interface Props {
+  role: Role;
+}
+
+const { role } = Astro.props;
+---
+
+<div class:list={['timeline-item', { current: role.current }]}>
+  <div class="timeline-header">
+    <img
+      src={role.logo}
+      alt={`${role.company} logo`}
+      class="company-logo"
+      width="28"
+      height="28"
+      loading="lazy"
+    />
+    <span class="timeline-title">{role.title}</span>
+    {role.current && (
+      <span class="current-badge">Current</span>
+    )}
+  </div>
+
+  <div class="timeline-meta">
+    {role.company} &nbsp;·&nbsp; {role.dates}
+  </div>
+
+  <p class="timeline-summary">{role.summary}</p>
+
+  <div class="job-details">
+    <ul>
+      {role.bullets.map((bullet) => (
+        <li>{bullet}</li>
+      ))}
+    </ul>
+  </div>
+
+  <button class="toggle-details" aria-expanded="false">
+    + Show more
+  </button>
+</div>

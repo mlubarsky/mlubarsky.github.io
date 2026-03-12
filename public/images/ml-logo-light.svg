@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 40 40">
+  <!-- Background: solid accent purple -->
+  <rect width="40" height="40" rx="8" fill="#7c6ff7"/>
+  <!-- Subtle inner highlight -->
+  <rect width="40" height="40" rx="8" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.25"/>
+  <!-- M -->
+  <polyline
+    points="5,30 5,11 13,21 21,11 21,30"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- L -->
+  <polyline
+    points="25,11 25,30 35,30"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

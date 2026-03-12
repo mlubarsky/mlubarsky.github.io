@@ -1,0 +1,102 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Maxwell Lubarsky — Software Engineer',
+  description = 'Portfolio of Maxwell Lubarsky, a software engineer and M.S. CS student at the University of San Francisco.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content="Maxwell Lubarsky" />
+  <meta name="google-site-verification" content="erIwyzw3KCwWn_FuNQG1YoZWHmnolX_Hpcy_GIpBRHM" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://mlubarsky.github.io" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/favicon_io/apple-touch-icon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+  </noscript>
+
+  <!-- Prevent flash of wrong theme -->
+  <script is:inline>
+    (function () {
+      var t = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/global.css" />
+  <link rel="stylesheet" href="/styles/animations.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/hero.css" />
+  <link rel="stylesheet" href="/styles/about.css" />
+  <link rel="stylesheet" href="/styles/skills.css" />
+  <link rel="stylesheet" href="/styles/experience.css" />
+  <link rel="stylesheet" href="/styles/projects.css" />
+  <link rel="stylesheet" href="/styles/modal.css" />
+  <link rel="stylesheet" href="/styles/contact.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Maxwell Lubarsky",
+      "url": "https://mlubarsky.github.io",
+      "sameAs": [
+        "https://www.linkedin.com/in/maxwelllubarsky/",
+        "https://github.com/mlubarsky"
+      ],
+      "jobTitle": "Software Engineer",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of San Francisco"
+      }
+    }
+  </script>
+</head>
+<body>
+  <slot />
+
+  <!-- Scripts -->
+  <script src="/scripts/theme.js" defer></script>
+  <script src="/scripts/nav.js" defer></script>
+  <script src="/scripts/animations.js" defer></script>
+  <script src="/scripts/modal.js" defer></script>
+  <script src="/scripts/typewriter.js" defer></script>
+  <script src="/scripts/hero.js" defer></script>
+</body>
+</html>
