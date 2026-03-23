@@ -1,0 +1,37 @@
+---
+---
+
+<div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+  <div class="modal-content contact-modal-content">
+    <button class="modal-close" id="contact-modal-close" aria-label="Close modal">&times;</button>
+
+    <div class="modal-label">// Get in touch</div>
+    <h2 class="modal-title" id="contact-modal-title">Send a Message</h2>
+
+    <form id="contact-form" novalidate>
+      <div class="cf-field">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" required placeholder="Your name" />
+      </div>
+
+      <div class="cf-field">
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" required placeholder="your@email.com" />
+      </div>
+
+      <div class="cf-field">
+        <label for="cf-subject">Subject</label>
+        <input type="text" id="cf-subject" name="subject" required placeholder="What's this about?" />
+      </div>
+
+      <div class="cf-field">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" required placeholder="Your message..." rows="5"></textarea>
+      </div>
+
+      <div id="cf-status" class="cf-status" aria-live="polite"></div>
+
+      <button type="submit" id="cf-submit-btn" class="cf-submit">Send Message</button>
+    </form>
+  </div>
+</div>
