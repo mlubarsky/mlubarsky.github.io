@@ -1,0 +1,95 @@
+/* Contact Modal — form field styles */
+
+.contact-modal-content {
+  max-width: 520px;
+  width: 100%;
+}
+
+.cf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-bottom: 1.125rem;
+}
+
+.cf-field label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cf-field input,
+.cf-field textarea {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  padding: 0.625rem 0.875rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cf-field input::placeholder,
+.cf-field textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+.cf-field input:focus,
+.cf-field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb, 99, 102, 241), 0.15);
+}
+
+.cf-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.cf-status {
+  font-size: 0.875rem;
+  min-height: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.cf-status--success {
+  color: #4ade80;
+}
+
+.cf-status--error {
+  color: #f87171;
+}
+
+.cf-submit {
+  background: var(--color-accent);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+  width: 100%;
+}
+
+.cf-submit:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.cf-submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.cf-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
