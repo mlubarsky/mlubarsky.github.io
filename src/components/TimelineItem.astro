@@ -9,6 +9,8 @@ const { role } = Astro.props;
 ---
 
 <div class:list={['timeline-item', { current: role.current }]}>
+  <span class="tl-date tl-date--end">{role.endDate}</span>
+
   <div class="timeline-header">
     <img
       src={role.logo}
@@ -19,13 +21,17 @@ const { role } = Astro.props;
       loading="lazy"
     />
     <span class="timeline-title">{role.title}</span>
+    {!role.current && (
+      <span class="timeline-duration">{role.duration}</span>
+    )}
     {role.current && (
       <span class="current-badge">Current</span>
     )}
   </div>
 
   <div class="timeline-meta">
-    {role.company} &nbsp;·&nbsp; {role.dates}
+    <span class="timeline-company">{role.company}</span>
+    <span class="timeline-meta-dates">&nbsp;·&nbsp; {role.startDate} – {role.endDate}</span>
   </div>
 
   <p class="timeline-summary">{role.summary}</p>
@@ -41,4 +47,6 @@ const { role } = Astro.props;
   <button class="toggle-details" aria-expanded="false">
     + Show more
   </button>
+
+  <span class="tl-date tl-date--start">{role.startDate}</span>
 </div>

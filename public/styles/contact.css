@@ -15,6 +15,7 @@
   color: var(--color-text);
   margin-bottom: 1rem;
   line-height: 1.2;
+  text-shadow: 0 0 40px rgba(var(--color-accent-rgb), 0.28);
 }
 
 .contact-sub {
@@ -57,7 +58,7 @@
 }
 
 .social-link:hover {
-  border-color: rgba(124, 111, 247, 0.5);
+  border-color: rgba(var(--color-accent-rgb), 0.5);
   color: var(--color-accent);
   background: var(--glass-bg-hover);
 }

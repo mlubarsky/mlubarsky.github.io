@@ -2,7 +2,9 @@ export interface Role {
   company: string;
   title: string;
   logo: string;
-  dates: string;
+  startDate: string;
+  endDate: string;
+  duration: string;
   current: boolean;
   summary: string;
   bullets: string[];
@@ -13,7 +15,9 @@ export const experience: Role[] = [
     company: 'University of San Francisco, ITS',
     title: 'Mobile Developer',
     logo: '/images/usf-logo-green_28x28.png',
-    dates: 'Oct 2025 – Present',
+    startDate: 'Oct 2025',
+    endDate: 'Present',
+    duration: '6 mos',
     current: true,
     summary: "Building features within the university's mobile app, USFMobile.",
     bullets: [
@@ -25,7 +29,9 @@ export const experience: Role[] = [
     company: 'Project Drawdown',
     title: 'Software Engineer Intern',
     logo: '/images/project_drawdown_logo.jpg',
-    dates: 'Jan 2025 – May 2025',
+    startDate: 'Jan 2025',
+    endDate: 'May 2025',
+    duration: '5 mos',
     current: false,
     summary: 'Built a web application that puts greenhouse gas emissions into intuitive real-world comparisons.',
     bullets: [
@@ -38,7 +44,9 @@ export const experience: Role[] = [
     company: 'University of San Francisco, ITS',
     title: 'Application Technician',
     logo: '/images/usf-logo-green_28x28.png',
-    dates: 'May 2023 – May 2025',
+    startDate: 'May 2023',
+    endDate: 'May 2025',
+    duration: '2 yrs',
     current: false,
     summary: 'Worked alongside admins and programmers; provided technical support for various enterprise applications.',
     bullets: [
@@ -51,7 +59,9 @@ export const experience: Role[] = [
     company: 'University of San Francisco, ITS',
     title: 'Help Desk Technician',
     logo: '/images/usf-logo-green.png',
-    dates: 'June 2022 – May 2023',
+    startDate: 'June 2022',
+    endDate: 'Apr 2023',
+    duration: '10 mos',
     current: false,
     summary: 'Provided technical support for faculty, staff, and students across a wide range of applications and technologies.',
     bullets: [

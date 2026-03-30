@@ -21,9 +21,9 @@
 })();
 
 // Scroll-entrance animation using IntersectionObserver
+// Elements animate in when entering the viewport and reset when scrolled back below it
 (function () {
   const elements = document.querySelectorAll('.animate-on-scroll');
-  // Also trigger skills section visibility for staggered badge animation
   const skillsSection = document.querySelector('.skills');
 
   if (!elements.length) return;
@@ -33,8 +33,11 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+        } else if (entry.boundingClientRect.top > 0) {
+          // Element is below the viewport — reset so it re-animates on next scroll-down
+          entry.target.classList.remove('is-visible');
         }
+        // If top < 0 (above viewport, already scrolled past) — leave visible
       });
     },
     { threshold: 0.1 }
@@ -51,7 +54,8 @@
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            skillsObserver.unobserve(entry.target);
+          } else if (entry.boundingClientRect.top > 0) {
+            entry.target.classList.remove('is-visible');
           }
         });
       },

@@ -11,7 +11,7 @@
 /* Timeline */
 .timeline {
   position: relative;
-  padding-left: 2.5rem;
+  padding-left: 8rem;
   margin-top: 2rem;
 }
 
@@ -19,7 +19,7 @@
 .timeline::before {
   content: '';
   position: absolute;
-  left: 0.7rem;
+  left: 6.5rem;
   top: 0;
   bottom: 0;
   width: 2px;
@@ -33,14 +33,14 @@
 }
 
 .timeline-item:last-child {
-  padding-bottom: 0;
+  padding-bottom: 2rem;
 }
 
 /* Horizontal tick extending right from the vertical bar */
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -1.8rem;
+  left: -1.5rem;
   top: 0.55rem;
   width: 16px;
   height: 2px;
@@ -58,13 +58,47 @@
 .timeline-item.current::after {
   content: '';
   position: absolute;
-  left: -1.8rem;
+  left: -1.5rem;
   top: 0.55rem;
   bottom: -0.55rem;
   width: 2px;
   background: var(--color-green);
   box-shadow: 0 0 8px rgba(74, 222, 128, 0.25);
   z-index: 1;
+}
+
+/* Date labels on the left side of the timeline bar */
+.tl-date {
+  position: absolute;
+  left: -7rem;
+  width: 4.2rem;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Small tick extending left from the bar to each date label */
+.tl-date::after {
+  content: '';
+  position: absolute;
+  left: calc(5.5rem - 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 1px;
+  background: var(--color-border);
+  border-radius: 1px 0 0 1px;
+}
+
+.tl-date--end {
+  top: 0.95rem;
+}
+
+.tl-date--start {
+  bottom: 0.2rem;
 }
 
 /* Header row */
@@ -119,6 +153,23 @@
   color: var(--color-text-muted);
   margin-bottom: 0.5rem;
   font-family: var(--font-mono);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.timeline-company {
+  color: var(--color-text-muted);
+}
+
+.timeline-duration {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
 }
 
 /* Summary */
@@ -179,4 +230,41 @@
 
 .toggle-details:hover {
   opacity: 0.75;
+}
+
+/* Hide inline dates on desktop — shown via tl-date labels instead */
+.timeline-meta-dates {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    left: 0.7rem;
+  }
+
+  .timeline-item::before {
+    left: -1.8rem;
+  }
+
+  .timeline-item.current::after {
+    left: -1.8rem;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .tl-date {
+    display: none;
+  }
+
+  /* Restore inline dates in meta on mobile */
+  .timeline-meta-dates {
+    display: block;
+    width: 100%;
+  }
 }
