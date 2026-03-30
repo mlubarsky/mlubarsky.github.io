@@ -28,8 +28,8 @@ export const projects: Project[] = [
     link: 'https://reviv.up.railway.app/',
     linkLabel: 'View Live',
     featured: true,
-    screenshot: '/images/reviv-logo.svg',
-    screenshotIsLogo: true,
+    screenshot: '/images/REVIV-screenshot.png',
+    // screenshotIsLogo: true,
   },
   {
     id: 'carbon',
@@ -45,8 +45,8 @@ export const projects: Project[] = [
     link: 'https://carbonincontext.com',
     linkLabel: 'View Live',
     featured: true,
-    screenshot: '/images/carbon-logo.png',
-    screenshotIsLogo: true,
+    screenshot: '/images/CiC-screenshot.png',
+    // screenshotIsLogo: true,
   },
   {
     id: 'hirearchy',
@@ -62,8 +62,8 @@ export const projects: Project[] = [
     link: 'https://github.com/mlubarsky/Hirearchy',
     linkLabel: 'View on GitHub',
     featured: true,
-    screenshot: '/images/hirearchy-logo.png',
-    screenshotIsLogo: true,
+    screenshot: '/images/hirearchy-screenshot.png',
+    // screenshotIsLogo: true,
   },
   {
     id: 'search-engine',
