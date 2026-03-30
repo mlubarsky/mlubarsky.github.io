@@ -6,11 +6,11 @@ export interface SkillCategory {
 export const skills: SkillCategory[] = [
   {
     name: 'Languages',
-    skills: ['Java', 'Python', 'C', 'JavaScript', 'HTML', 'CSS'],
+    skills: ['Java', 'Python', 'JavaScript', 'C', 'Rust'],
   },
   {
-    name: 'Machine Learning',
-    skills: ['TensorFlow', 'Pytorch', 'Scikit-learn', 'Jupyter Notebook'],
+    name: 'Machine Learning and AI',
+    skills: ['TensorFlow', 'Pytorch', 'Scikit-learn', 'NumPy', 'pandas'],
   },
   {
     name: 'Databases',
@@ -18,6 +18,6 @@ export const skills: SkillCategory[] = [
   },
   {
     name: 'DevOps / Tools',
-    skills: ['Docker', 'Git', 'GitHub', 'Jira', 'ServiceNow', 'Auth0', 'Railway'],
+    skills: ['Git', 'Docker', 'Auth0', 'Railway', 'Jira', 'ServiceNow'],
   },
 ];

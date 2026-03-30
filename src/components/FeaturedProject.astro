@@ -1,5 +1,6 @@
 ---
 import type { Project } from '../data/projects';
+import { getTechIcon } from '../utils/techIcons';
 
 export interface Props {
   project: Project;
@@ -56,9 +57,28 @@ const initial = project.title.charAt(0);
     <p class="featured-hook">{project.hook}</p>
 
     <div class="featured-tech">
-      {project.tech.slice(0, 5).map((t) => (
-        <span class="tech-pill">{t}</span>
-      ))}
+      {project.tech.map((t) => {
+        const icon = getTechIcon(t);
+        return (
+          <span class="tech-chip">
+            {icon ? (
+              <img
+                src={icon.src}
+                alt={t}
+                class:list={['tech-chip-icon', { 'needs-invert': icon.invert }]}
+                width="15"
+                height="15"
+                loading="lazy"
+              />
+            ) : (
+              <span class="tech-chip-initial" aria-hidden="true">
+                {t.charAt(0)}
+              </span>
+            )}
+            <span class="tech-chip-label">{t}</span>
+          </span>
+        );
+      })}
     </div>
 
     <div class="featured-cta">

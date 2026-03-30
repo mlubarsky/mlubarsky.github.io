@@ -243,6 +243,55 @@
   margin-top: 0.25rem;
 }
 
+/* Featured card: icon + label chips */
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.22rem 0.55rem 0.22rem 0.32rem;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  cursor: default;
+}
+
+.tech-chip:hover {
+  border-color: rgba(var(--color-accent-rgb), 0.5);
+  color: var(--color-text);
+  background: rgba(var(--color-accent-rgb), 0.07);
+}
+
+.tech-chip-icon {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+.tech-chip-initial {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  background: var(--color-accent-glow);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tech-chip-label {
+  line-height: 1;
+}
+
 .featured-cta {
   margin-top: 0.5rem;
   display: flex;
@@ -383,6 +432,53 @@
   flex-wrap: wrap;
   gap: 0.35rem;
   margin-top: 0.5rem;
+}
+
+/* Compact card: icon-only square tiles with tooltip */
+.tech-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  transition: border-color 0.2s ease, background 0.2s ease;
+  cursor: default;
+  flex-shrink: 0;
+}
+
+.tech-dot:hover {
+  border-color: rgba(var(--color-accent-rgb), 0.5);
+  background: rgba(var(--color-accent-rgb), 0.08);
+}
+
+.tech-dot-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+
+.tech-dot-initial {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  line-height: 1;
+  text-align: center;
+  user-select: none;
+}
+
+/* Dark icons (e.g. Flask, Railway) — invert to white on dark bg */
+.needs-invert {
+  filter: brightness(0) invert(1);
+}
+
+/* Restore in light theme */
+[data-theme="light"] .needs-invert {
+  filter: none;
 }
 
 .project-card-footer {
