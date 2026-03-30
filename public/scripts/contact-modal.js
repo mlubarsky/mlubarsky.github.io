@@ -19,6 +19,9 @@
   function closeModal() {
     overlay.classList.remove('open');
     document.body.style.overflow = '';
+    // Reset button so the form is fully usable if reopened
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message';
   }
 
   trigger.addEventListener('click', openModal);

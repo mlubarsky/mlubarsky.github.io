@@ -37,20 +37,64 @@
   gap: 1rem;
 }
 
+/* ---- Liquid Glass cards ---- */
 .qs-card {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius);
-  padding: 1.25rem 1rem;
-  box-shadow: var(--glass-highlight);
-  transition: border-color 0.2s ease, background 0.2s ease;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(64px) saturate(220%) brightness(1.12);
+  -webkit-backdrop-filter: blur(64px) saturate(220%) brightness(1.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 20px;
+  padding: 1.4rem 1.1rem;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.20),
+    0 0 0 0.5px rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: default;
 }
 
-.qs-card:hover {
-  border-color: rgba(124, 111, 247, 0.45);
-  background: var(--glass-bg-hover);
+/* Static diagonal specular — light catching curved glass */
+.qs-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 35%,
+    transparent 55%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* Shimmer sweep on hover — matches compact project cards */
+.qs-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(var(--color-accent-rgb), 0.08) 50%,
+    transparent 65%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.55s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.qs-card:hover::after {
+  transform: translateX(100%);
 }
 
 .qs-label {
@@ -60,13 +104,38 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.35rem;
+  position: relative;
+  z-index: 3;
 }
 
 .qs-value {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-text);
+  position: relative;
+  z-index: 3;
 }
+
+/* Light theme */
+[data-theme="light"] .qs-card {
+  background: rgba(255, 255, 255, 0.42);
+  border-color: rgba(255, 255, 255, 0.90);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06),
+    0 8px 32px rgba(0, 0, 0, 0.10),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .qs-card::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.70) 0%,
+    rgba(255, 255, 255, 0.15) 35%,
+    transparent 55%
+  );
+}
+
 
 @media (max-width: 768px) {
   .about-body {

@@ -21,11 +21,6 @@
       container.textContent += text.charAt(index);
       index++;
       setTimeout(type, speed);
-    } else {
-      // Blink cursor a few times then hide it
-      if (cursor) {
-        cursor.classList.add('done');
-      }
     }
   }
 
