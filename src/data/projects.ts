@@ -51,7 +51,7 @@ export const projects: Project[] = [
     hook: 'Full-stack job application tracker with secure auth and Dockerization.',
     description: 'Hirearchy helps users neatly organize and keep track of jobs they applied to, with reminders and a clean dashboard.',
     bullets: [
-      'Includes a reminders tab for keeping track of personal notes, and sorting/searching through applications',
+      'Includes a reminders tab for keeping track of personal notes, and sorting/searching through applications.',
       'Built with Java Spring Boot backend, JavaScript/HTML/CSS frontend, and MongoDB database.',
       'Deployed with Docker containers for easy reproducible environments.',
       'Features secure login using Auth0 with OAuth 2.0.',
