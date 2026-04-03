@@ -9,7 +9,6 @@ export interface Project {
   linkLabel: string;
   featured: boolean;
   screenshot?: string;
-  screenshotIsLogo?: boolean;
 }
 
 export const projects: Project[] = [
@@ -17,9 +16,9 @@ export const projects: Project[] = [
     id: 'reviv',
     title: 'REVIV',
     hook: '🏆 DonsHack \'26 2nd Place Winner — community-driven environmental cleanup platform with an interactive 3D globe.',
-    description: 'REVIV (Real-Time Environmental Visualization & Impact Volunteering) connects people with local places that need cleanup help. Users discover litter reports on an interactive 3D globe, create or join cleanup events, and track their community impact.',
+    description: 'REVIV (Real-Time Environmental Visualization & Impact Volunteering) connects people with local places that need cleanup help. Users discover litter reports on an interactive map, create or join cleanup events, and track their community impact.',
     bullets: [
-      'Interactive 3D globe (Globe.gl / Three.js) with real-time litter report markers, severity color coding, and seamless zoom from global to street level.',
+      'Interactive 3D globe that switches to street map view on zoom, with real-time litter report markers, severity color coding, and seamless zoom from global to street level.',
       'Pre-trained ML model that scans user uploaded pictures to determine trash severity in the area.',
       'Full-stack: React 18 + Vite frontend; FastAPI Python backend with MongoDB GeoJSON geospatial queries.',
       'Complete event lifecycle — create/join cleanups with volunteer caps, waitlists, post-event confirmation, and an in-app notification system.',
@@ -28,8 +27,7 @@ export const projects: Project[] = [
     link: 'https://reviv.up.railway.app/',
     linkLabel: 'View Live',
     featured: true,
-    screenshot: '/images/REVIV-screenshot.png',
-    // screenshotIsLogo: true,
+    screenshot: '/images/screenshot-reviv.png',
   },
   {
     id: 'carbon',
@@ -45,8 +43,7 @@ export const projects: Project[] = [
     link: 'https://carbonincontext.com',
     linkLabel: 'View Live',
     featured: true,
-    screenshot: '/images/CiC-screenshot.png',
-    // screenshotIsLogo: true,
+    screenshot: '/images/screenshot-cic.png',
   },
   {
     id: 'hirearchy',
@@ -54,6 +51,7 @@ export const projects: Project[] = [
     hook: 'Full-stack job application tracker with secure auth and Dockerization.',
     description: 'Hirearchy helps users neatly organize and keep track of jobs they applied to, with reminders and a clean dashboard.',
     bullets: [
+      'Includes a reminders tab for keeping track of personal notes, and sorting/searching through applications',
       'Built with Java Spring Boot backend, JavaScript/HTML/CSS frontend, and MongoDB database.',
       'Deployed with Docker containers for easy reproducible environments.',
       'Features secure login using Auth0 with OAuth 2.0.',
@@ -62,14 +60,13 @@ export const projects: Project[] = [
     link: 'https://github.com/mlubarsky/Hirearchy',
     linkLabel: 'View on GitHub',
     featured: true,
-    screenshot: '/images/hirearchy-screenshot.png',
-    // screenshotIsLogo: true,
+    screenshot: '/images/screenshot-hirearchy.png',
   },
   {
     id: 'search-engine',
     title: 'Search Engine',
-    hook: '2,000 SLOC full-stack search engine with a multithreaded web crawler.',
-    description: 'A search engine built from scratch in 2,000 SLOC using Apache OpenNLP, TF-IDF result rankings, sockets, HTTP, Eclipse Jetty, servlets, and Apache Maven.',
+    hook: 'Full-stack search engine with a multithreaded web crawler.',
+    description: 'A search engine built from scratch in 2,000 SLOC using Apache OpenNLP, TF-IDF result rankings, HTTP, Eclipse Jetty, servlets, and Apache Maven.',
     bullets: [
       'Backend written in Java; frontend written in HTML/CSS and JavaScript.',
       'Implements a custom inverted index data structure for fast lookups.',
@@ -79,13 +76,12 @@ export const projects: Project[] = [
     link: '/images/search-engine-demo.mp4',
     linkLabel: 'Watch Demo',
     featured: false,
-    screenshot: '/images/search-engine.png',
   },
   {
     id: 'aqi-predictor',
     title: 'AQI Predictor',
-    hook: 'LSTM neural network predicts SF air quality index with 87% accuracy.',
-    description: 'A predictive time series model using a Long Short-Term Memory (LSTM) recurrent neural network to predict San Francisco\'s AQI from historical weather and pollution data.',
+    hook: 'Long Short-Term Memory (LSTM) neural network predicts SF air quality index with 87% accuracy.',
+    description: 'A predictive time series model using an LSTM recurrent neural network to predict San Francisco\'s AQI from historical weather and pollution data.',
     bullets: [
       'Built with TensorFlow, Scikit-learn, Pandas, NumPy, and Matplotlib.',
       'Achieved 87% prediction accuracy after training and validation.',
@@ -95,12 +91,11 @@ export const projects: Project[] = [
     link: 'https://github.com/mlubarsky/AQI-Predictor',
     linkLabel: 'View on GitHub',
     featured: false,
-    screenshot: '/images/AQI.webp',
   },
   {
     id: 'network-compression',
     title: 'Network Compression Detection',
-    hook: 'C client/server that detects network link compression via packet analysis.',
+    hook: 'Client/server that detects network link compression via packet analysis.',
     description: 'Client/server and standalone applications that use network sockets to detect whether there is compression on a network link.',
     bullets: [
       'All 3 applications written in C; WireShark for packet inspection, GDB for debugging.',
@@ -110,7 +105,6 @@ export const projects: Project[] = [
     link: 'https://github.com/mlubarsky/Network-Compression-Detection',
     linkLabel: 'View on GitHub',
     featured: false,
-    screenshot: '/images/network.webp',
   },
   {
     id: 'riscv-emulator',
@@ -122,10 +116,9 @@ export const projects: Project[] = [
       'Supports most RISC-V instructions.',
       'Implements direct mapped and set associative cache simulation.',
     ],
-    tech: ['C', 'Ubuntu', 'RISC-V', 'GDB'],
+    tech: ['C', 'Ubuntu', 'RISC-V'],
     link: 'https://github.com/mlubarsky/RISCV-V-Emulator',
     linkLabel: 'View on GitHub',
     featured: false,
-    screenshot: '/images/riscv.png',
   },
 ];

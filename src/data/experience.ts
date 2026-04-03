@@ -58,7 +58,7 @@ export const experience: Role[] = [
   {
     company: 'University of San Francisco, ITS',
     title: 'Help Desk Technician',
-    logo: '/images/usf-logo-green.png',
+    logo: '/images/usf-logo-green_28x28.png',
     startDate: 'June 2022',
     endDate: 'Apr 2023',
     duration: '10 mos',
