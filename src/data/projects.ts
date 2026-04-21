@@ -40,7 +40,7 @@ export const projects: Project[] = [
       'Provides access to Project Drawdown\'s climate solutions and open emissions data.',
     ],
     tech: ['Python', 'Flask', 'JavaScript', 'HTML5', 'CSS', 'PostgreSQL', 'Railway', 'Cloudflare'],
-    link: 'https://carbonincontext.com',
+    link: 'https://drawdown.org/carbon-in-context',
     linkLabel: 'View Live',
     featured: true,
     screenshot: '/images/screenshot-cic.png',
